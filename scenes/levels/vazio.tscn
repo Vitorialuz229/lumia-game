@@ -1,10 +1,10 @@
 [gd_scene load_steps=37 format=3 uid="uid://byomk0tq4f3oc"]
 
-[ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://cynthia.gd" id="1_p1ufu"]
-[ext_resource type="Texture2D" uid="uid://cbn55cyang50n" path="res://assets/sprites/personagem/Idle_Vazio.png" id="2_f5tc2"]
-[ext_resource type="Texture2D" uid="uid://csnr7f8v7vh1s" path="res://assets/sprites/personagem/jump_Vazio.png" id="3_pj5wn"]
-[ext_resource type="Texture2D" uid="uid://jfkctjypswtt" path="res://assets/sprites/personagem/run_Vazio.png" id="4_7r4vr"]
-[ext_resource type="Script" uid="uid://c6lwrxwupk30h" path="res://scripts/camera_2d.gd" id="5_f5tc2"]
+[ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_p1ufu"]
+[ext_resource type="Texture2D" uid="uid://c27w8dfx8gtnk" path="res://assets/sprites/personagem/Vazio/Idle_vazio.png" id="2_f5tc2"]
+[ext_resource type="Texture2D" uid="uid://dpt5fhjxjxfo2" path="res://assets/sprites/personagem/Vazio/jump_vazio.png" id="3_pj5wn"]
+[ext_resource type="Texture2D" uid="uid://ccupcp5uyvi5a" path="res://assets/sprites/personagem/Vazio/run_vazio.png" id="4_7r4vr"]
+[ext_resource type="Script" uid="uid://c6lwrxwupk30h" path="res://scripts/personagem/camera_2d.gd" id="5_f5tc2"]
 
 [sub_resource type="Gradient" id="Gradient_sv07v"]
 offsets = PackedFloat32Array(0, 0.565217, 1)
@@ -19,7 +19,7 @@ gradient = SubResource("Gradient_sv07v")
 gradient = SubResource("Gradient_v3u2c")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lefod"]
-size = Vector2(1152, 71.5)
+size = Vector2(1279, 105)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydlh0"]
 atlas = ExtResource("2_f5tc2")
@@ -211,6 +211,7 @@ animations = [{
 size = Vector2(91, 133)
 
 [node name="Vazio" type="Node2D"]
+position = Vector2(64, 38)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 1.0
@@ -219,20 +220,20 @@ offset_right = 1155.0
 offset_bottom = 571.0
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
-position = Vector2(574.5, 290)
-scale = Vector2(18.0469, 9.09375)
+position = Vector2(576, 272.5)
+scale = Vector2(19.9687, 9.64063)
 texture = SubResource("GradientTexture2D_w2u2h")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(570, 608)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(4, 2)
-scale = Vector2(17.9531, 1.21875)
+position = Vector2(6.49998, 18)
+scale = Vector2(19.9531, 1.71875)
 texture = SubResource("GradientTexture2D_d1sd2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(6, 6.75)
+position = Vector2(5.5, 23.5)
 shape = SubResource("RectangleShape2D_lefod")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -244,7 +245,7 @@ position = Vector2(-3, -26)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_k6o2u")
 animation = &"run"
-frame_progress = 0.983776
+frame_progress = 0.569165
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-11.5, 2.5)

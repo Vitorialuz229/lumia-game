@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jfkctjypswtt"
-path="res://.godot/imported/run_Vazio.png-52d768bbddd238c97a5e0c883538b35f.ctex"
+uid="uid://ccupcp5uyvi5a"
+path="res://.godot/imported/run_vazio.png-1db2c6b09319d22450b9f2d77af7340c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/personagem/run_Vazio.png"
-dest_files=["res://.godot/imported/run_Vazio.png-52d768bbddd238c97a5e0c883538b35f.ctex"]
+source_file="res://assets/sprites/personagem/Vazio/run_vazio.png"
+dest_files=["res://.godot/imported/run_vazio.png-1db2c6b09319d22450b9f2d77af7340c.ctex"]
 
 [params]
 

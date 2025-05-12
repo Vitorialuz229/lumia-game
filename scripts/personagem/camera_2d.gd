@@ -8,7 +8,7 @@ func _ready():
 	if target:
 		fixed_y = global_position.y
 
-func _process(delta):
+func _process(_delta):
 	if target:
 		global_position.x = target.global_position.x
 		global_position.y = fixed_y

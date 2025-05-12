@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbn55cyang50n"
-path="res://.godot/imported/Idle_Vazio.png-7e83087c5165f8c9c878970627caa765.ctex"
+uid="uid://bxamgxs32h2aj"
+path="res://.godot/imported/Idle_tristeza.png-a85c337345bc656ab0900123da930f19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/personagem/Idle_Vazio.png"
-dest_files=["res://.godot/imported/Idle_Vazio.png-7e83087c5165f8c9c878970627caa765.ctex"]
+source_file="res://assets/sprites/personagem/Tristeza/Idle_tristeza.png"
+dest_files=["res://.godot/imported/Idle_tristeza.png-a85c337345bc656ab0900123da930f19.ctex"]
 
 [params]
 

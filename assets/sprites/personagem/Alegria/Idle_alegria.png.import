@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brlf4eu3a77h1"
-path="res://.godot/imported/silhueta_de_corpo_inteiro_de_jovem_negra_de_lado-removebg-preview.png-1499eed5449efad41cc4e67ff162a85a.ctex"
+uid="uid://2h74if1gqueu"
+path="res://.godot/imported/Idle_alegria.png-ed8884ee0ed051e54ed7dd1843a26d18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://silhueta_de_corpo_inteiro_de_jovem_negra_de_lado-removebg-preview.png"
-dest_files=["res://.godot/imported/silhueta_de_corpo_inteiro_de_jovem_negra_de_lado-removebg-preview.png-1499eed5449efad41cc4e67ff162a85a.ctex"]
+source_file="res://assets/sprites/personagem/Alegria/Idle_alegria.png"
+dest_files=["res://.godot/imported/Idle_alegria.png-ed8884ee0ed051e54ed7dd1843a26d18.ctex"]
 
 [params]
 

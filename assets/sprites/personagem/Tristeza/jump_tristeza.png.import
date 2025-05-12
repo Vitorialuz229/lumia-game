@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csnr7f8v7vh1s"
-path="res://.godot/imported/jump_Vazio.png-f38915f01fc8dc253289a5699a4f6db1.ctex"
+uid="uid://lvvkr8lqaiow"
+path="res://.godot/imported/jump_tristeza.png-780e1218c415ae113ee94d3dbb8e25f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/personagem/jump_Vazio.png"
-dest_files=["res://.godot/imported/jump_Vazio.png-f38915f01fc8dc253289a5699a4f6db1.ctex"]
+source_file="res://assets/sprites/personagem/Tristeza/jump_tristeza.png"
+dest_files=["res://.godot/imported/jump_tristeza.png-780e1218c415ae113ee94d3dbb8e25f3.ctex"]
 
 [params]
 
