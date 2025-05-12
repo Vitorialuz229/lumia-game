@@ -4,15 +4,13 @@ var speed = 300
 var jump_force = -600
 var gravity = 1500
 
-func _ready():
-	$Camera2D.make_current()  # Garante que a câmera siga a personagem
+@onready var sprite = $AnimatedSprite2D
+
+#func _ready():
+	# $Camera2D.make_current()  # fazer a câmera seguir a personagem
 
 func _physics_process(delta):
-	# Debug simplificado (só exibe se houver movimento)
-	if velocity.x != 0 or velocity.y != 0:
-		print("Velocity: ", velocity, " | No chão: ", is_on_floor())
-	
-	# Gravidade
+	# Aplica gravidade
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -24,4 +22,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = jump_force
 	
+	# Move o personagem
 	move_and_slide()
+
+	# Controle das animações
+	if not is_on_floor():
+		sprite.play("jump")
+	elif abs(velocity.x) > 0.1:
+		sprite.play("run")
+	else:
+		sprite.play("idle")
+	
+	# Virar o sprite para o lado
+	if direction != 0:
+		sprite.flip_h = direction < 0

@@ -12,7 +12,7 @@ func save_game():
 func load_game():  
 	var config = ConfigFile.new()  
 	var err = config.load(save_path)  
-	if err == OK:  # Se o arquivo existe  
+	if err == OK:
 		Global.fase_atual = config.get_value("progresso", "fase_atual")  
 		Global.orbs_coletados = config.get_value("progresso", "orbs_coletados")  
 		Global.checkpoint_puzzle = config.get_value("progresso", "checkpoint_puzzle")  

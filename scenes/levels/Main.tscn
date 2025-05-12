@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c80g6q7lsvkff"]
 
-[ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://cynthia.gd" id="1_uu6xs"]
-[ext_resource type="Texture2D" uid="uid://brlf4eu3a77h1" path="res://silhueta_de_corpo_inteiro_de_jovem_negra_de_lado-removebg-preview.png" id="2_r0du0"]
+[ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://cynthia.gd" id="1_xnrmx"]
+[ext_resource type="Texture2D" uid="uid://brlf4eu3a77h1" path="res://silhueta_de_corpo_inteiro_de_jovem_negra_de_lado-removebg-preview.png" id="2_wplmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 size = Vector2(54, 275)
@@ -17,19 +17,19 @@ gradient = SubResource("Gradient_uu6xs")
 [node name="Node2D" type="Node2D"]
 
 [node name="Cynthia" type="CharacterBody2D" parent="."]
-script = ExtResource("1_uu6xs")
+script = ExtResource("1_xnrmx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cynthia"]
 position = Vector2(588, 483)
 scale = Vector2(0.494667, 0.496992)
-texture = ExtResource("2_r0du0")
+texture = ExtResource("2_wplmo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cynthia"]
 position = Vector2(589, 485)
 shape = SubResource("RectangleShape2D_cm0pq")
 
 [node name="Camera2D" type="Camera2D" parent="Cynthia"]
-position = Vector2(576, 324)
+position = Vector2(578, 326)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
