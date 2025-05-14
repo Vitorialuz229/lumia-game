@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://i40wm6dp7skt"]
+
+[ext_resource type="Script" uid="uid://doj01wa0xe3ou" path="res://scripts/ui/MainMenu.gd" id="1_vjtqc"]
+
+[sub_resource type="Theme" id="Theme_6jbdy"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjtqc")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -59.0
+offset_right = 82.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6jbdy")
+alignment = 1
+
+[node name="BtnContinue" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="BtnStart" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Novo jogo"
+
+[node name="BtnSettings" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Configurações"
+
+[node name="BtnExit" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Sair do jogo"
+
+[connection signal="pressed" from="Menu/BtnContinue" to="." method="_on_BtnContinue_pressed"]
+[connection signal="pressed" from="Menu/BtnStart" to="." method="_on_BtnStart_pressed"]
+[connection signal="pressed" from="Menu/BtnSettings" to="." method="_on_BtnSettings_pressed"]
+[connection signal="pressed" from="Menu/BtnExit" to="." method="_on_BtnExit_pressed"]

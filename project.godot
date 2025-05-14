@@ -11,17 +11,23 @@ config_version=5
 [application]
 
 config/name="Teste"
-run/main_scene="uid://cu0r7nv4y8e8u"
+run/main_scene="uid://i40wm6dp7skt"
 config/features=PackedStringArray("4.4", "Mobile")
 
 [autoload]
 
-Global="*res://scripts/Global.gd"
+Globals="*res://scripts/Global.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/initial_position_type=0
+window/size/borderless=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/simple_gdscript_formatter/plugin.cfg")
 
 [input]
 
@@ -60,3 +66,4 @@ up={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true
