@@ -206,11 +206,11 @@ script = ExtResource("1_ekig3")
 position = Vector2(-3, -26)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_obiud")
-animation = &"run"
-frame_progress = 0.147297
+animation = &"jump"
+frame_progress = 0.310453
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-11.5, 2.5)
+position = Vector2(404, -24)
 shape = SubResource("RectangleShape2D_t47pt")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" node_paths=PackedStringArray("target")]

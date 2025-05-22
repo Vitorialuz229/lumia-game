@@ -12,8 +12,9 @@ func _on_BtnStart_pressed():
 	# Começa jogo novo
 	Globals.save_data = {
 		"current_phase": "vazio",
-		"orbs_collected": 0,
-		"puzzle_checkpoint": null
+		"orbs_collected": [],
+		"puzzle_checkpoint": null,
+		"following_orbs": []
 	}
 	Globals.save_game()
 	get_tree().change_scene_to_file("res://scenes/levels/vazio.tscn")
