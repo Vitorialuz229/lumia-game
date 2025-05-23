@@ -1,10 +1,87 @@
-[gd_scene load_steps=32 format=3 uid="uid://4bggfcmnxwc0"]
+[gd_scene load_steps=39 format=4 uid="uid://4bggfcmnxwc0"]
 
+[ext_resource type="Texture2D" uid="uid://hritrciixb88" path="res://assets/cenario/Raiva/Hills Layer 05 (1).png" id="1_ah3xb"]
+[ext_resource type="Texture2D" uid="uid://h24y2np2peso" path="res://assets/cenario/Raiva/15945 (1).jpg" id="1_rfeld"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_sf2by"]
 [ext_resource type="Texture2D" uid="uid://ci42pcb1tckuw" path="res://assets/sprites/personagem/Raiva/Idle_raiva.png" id="2_ruwo4"]
 [ext_resource type="Texture2D" uid="uid://bko6844okl5ae" path="res://assets/sprites/personagem/Raiva/jump_raiva.png" id="3_rfeld"]
 [ext_resource type="Texture2D" uid="uid://diiw53egnnott" path="res://assets/sprites/personagem/Raiva/run_raiva.png" id="4_ewng3"]
 [ext_resource type="Script" uid="uid://c6lwrxwupk30h" path="res://scripts/personagem/camera_2d.gd" id="5_ah3xb"]
+[ext_resource type="Texture2D" uid="uid://k6w4k4xtdyn0" path="res://assets/cenario/Raiva/pngwing.com (18).png" id="8_ewng3"]
+[ext_resource type="Texture2D" uid="uid://b5fplt4hj0v1" path="res://assets/cenario/Raiva/trees.png" id="9_ah3xb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6csy"]
+texture = ExtResource("1_ah3xb")
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+23:14/0 = 0
+24:14/0 = 0
+25:14/0 = 0
+26:14/0 = 0
+27:14/0 = 0
+28:14/0 = 0
+29:14/0 = 0
+30:14/0 = 0
+31:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
+20:15/0 = 0
+21:15/0 = 0
+22:15/0 = 0
+23:15/0 = 0
+24:15/0 = 0
+25:15/0 = 0
+26:15/0 = 0
+27:15/0 = 0
+28:15/0 = 0
+29:15/0 = 0
+30:15/0 = 0
+31:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ewng3"]
+sources/2 = SubResource("TileSetAtlasSource_c6csy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah3xb"]
+size = Vector2(2708, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6csy"]
 atlas = ExtResource("2_ruwo4")
@@ -198,21 +275,86 @@ size = Vector2(91, 133)
 [node name="Raiva" type="Node2D"]
 position = Vector2(64, 36)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="chão" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="Layer0" type="TileMapLayer" parent="chão"]
+use_parent_material = true
+position = Vector2(754, 65)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AADv/wsAAgAAAA4AAADv/wwAAgAAAA8AAADw/wsAAgABAA4AAADw/wwAAgABAA8AAADx/wsAAgACAA4AAADx/wwAAgACAA8AAADy/wsAAgADAA4AAADy/wwAAgADAA8AAADz/wsAAgAEAA4AAADz/wwAAgAEAA8AAAD0/wsAAgAFAA4AAAD0/wwAAgAFAA8AAAD1/wsAAgAGAA4AAAD1/wwAAgAGAA8AAAD2/wsAAgAHAA4AAAD2/wwAAgAHAA8AAAD3/wsAAgAIAA4AAAD3/wwAAgAIAA8AAAD4/wsAAgAJAA4AAAD4/wwAAgAJAA8AAAD5/wsAAgAKAA4AAAD5/wwAAgAKAA8AAAD6/wsAAgALAA4AAAD6/wwAAgALAA8AAAD7/wsAAgAMAA4AAAD7/wwAAgAMAA8AAAD8/wsAAgANAA4AAAD8/wwAAgANAA8AAAD9/wsAAgAOAA4AAAD9/wwAAgAOAA8AAAD+/wsAAgAPAA4AAAD+/wwAAgAPAA8AAAD//wsAAgAQAA4AAAD//wwAAgAQAA8AAAAAAAsAAgARAA4AAAAAAAwAAgARAA8AAAABAAsAAgASAA4AAAABAAwAAgASAA8AAAACAAsAAgATAA4AAAACAAwAAgATAA8AAAADAAsAAgAUAA4AAAADAAwAAgAUAA8AAAAEAAsAAgAVAA4AAAAEAAwAAgAVAA8AAAAFAAsAAgAWAA4AAAAFAAwAAgAWAA8AAAAGAAsAAgAXAA4AAAAGAAwAAgAXAA8AAAAHAAsAAgAYAA4AAAAHAAwAAgAYAA8AAAAIAAsAAgAZAA4AAAAIAAwAAgAZAA8AAAAJAAsAAgAaAA4AAAAJAAwAAgAaAA8AAAAKAAsAAgAbAA4AAAAKAAwAAgAbAA8AAAALAAsAAgAcAA4AAAALAAwAAgAcAA8AAAAMAAsAAgAdAA4AAAAMAAwAAgAdAA8AAAANAAsAAgAeAA4AAAANAAwAAgAeAA8AAAAOAAsAAgAfAA4AAAAOAAwAAgAfAA8AAAAPAAsAAgAAAA4AAAAPAAwAAgAAAA8AAAAQAAsAAgABAA4AAAAQAAwAAgABAA8AAAARAAsAAgACAA4AAAARAAwAAgACAA8AAAASAAsAAgADAA4AAAASAAwAAgADAA8AAAATAAsAAgAEAA4AAAATAAwAAgAEAA8AAAAUAAsAAgAFAA4AAAAUAAwAAgAFAA8AAAAVAAsAAgAGAA4AAAAVAAwAAgAGAA8AAAAWAAsAAgAHAA4AAAAWAAwAAgAHAA8AAAAXAAsAAgAIAA4AAAAXAAwAAgAIAA8AAAAYAAsAAgAJAA4AAAAYAAwAAgAJAA8AAAAZAAsAAgAKAA4AAAAZAAwAAgAKAA8AAAAaAAsAAgALAA4AAAAaAAwAAgALAA8AAAAbAAsAAgAMAA4AAAAbAAwAAgAMAA8AAAAcAAsAAgANAA4AAAAcAAwAAgANAA8AAAAdAAsAAgAOAA4AAAAdAAwAAgAOAA8AAAAeAAsAAgAPAA4AAAAeAAwAAgAPAA8AAAAfAAsAAgAQAA4AAAAfAAwAAgAQAA8AAAAgAAsAAgARAA4AAAAgAAwAAgARAA8AAAAhAAsAAgASAA4AAAAhAAwAAgASAA8AAAAiAAsAAgATAA4AAAAiAAwAAgATAA8AAAAjAAsAAgAUAA4AAAAjAAwAAgAUAA8AAAAkAAsAAgAVAA4AAAAkAAwAAgAVAA8AAAAlAAsAAgAWAA4AAAAlAAwAAgAWAA8AAAAmAAsAAgAXAA4AAAAmAAwAAgAXAA8AAAAnAAsAAgAYAA4AAAAnAAwAAgAYAA8AAAAoAAsAAgAZAA4AAAAoAAwAAgAZAA8AAAApAAsAAgAaAA4AAAApAAwAAgAaAA8AAAAqAAsAAgAbAA4AAAAqAAwAAgAbAA8AAAArAAsAAgAcAA4AAAArAAwAAgAcAA8AAAAsAAsAAgAdAA4AAAAsAAwAAgAdAA8AAAAtAAsAAgAeAA4AAAAtAAwAAgAeAA8AAAAuAAsAAgAfAA4AAAAuAAwAAgAfAA8AAAAvAAsAAgAAAA4AAAAvAAwAAgAAAA8AAAAwAAsAAgABAA4AAAAwAAwAAgABAA8AAAAxAAsAAgACAA4AAAAxAAwAAgACAA8AAAAyAAsAAgADAA4AAAAyAAwAAgADAA8AAAAzAAsAAgAEAA4AAAAzAAwAAgAEAA8AAAA0AAsAAgAFAA4AAAA0AAwAAgAFAA8AAAA1AAsAAgAGAA4AAAA1AAwAAgAGAA8AAAA2AAsAAgAHAA4AAAA2AAwAAgAHAA8AAAA3AAsAAgAIAA4AAAA3AAwAAgAIAA8AAAA4AAsAAgAJAA4AAAA4AAwAAgAJAA8AAAA5AAsAAgAKAA4AAAA5AAwAAgAKAA8A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")
+tile_set = SubResource("TileSet_ewng3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
+position = Vector2(1288, 666)
+shape = SubResource("RectangleShape2D_ah3xb")
+
+[node name="Cynthia" type="CharacterBody2D" parent="."]
 position = Vector2(570, 510)
+collision_mask = 6
 script = ExtResource("1_sf2by")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="OrbFollowPoint" type="Marker2D" parent="Cynthia"]
+position = Vector2(0, -300)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cynthia"]
 position = Vector2(-3, -26)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_24iof")
 animation = &"run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cynthia"]
 position = Vector2(-11.5, 2.5)
 shape = SubResource("RectangleShape2D_npbkf")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" node_paths=PackedStringArray("target")]
+[node name="Camera2D" type="Camera2D" parent="Cynthia" node_paths=PackedStringArray("target")]
 position = Vector2(6, -187)
 script = ExtResource("5_ah3xb")
 target = NodePath("..")
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="fundo" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/fundo"]
+position = Vector2(2540, 89)
+rotation = -3.14159
+texture = ExtResource("1_rfeld")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/fundo"]
+position = Vector2(7626, 89)
+texture = ExtResource("1_rfeld")
+
+[node name="Rachaduras" type="ParallaxLayer" parent="Background"]
+position = Vector2(-361, 72)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(3000, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/Rachaduras"]
+position = Vector2(1177, -157)
+rotation = -3.14159
+scale = Vector2(2, 2)
+texture = ExtResource("8_ewng3")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/Rachaduras"]
+position = Vector2(2741, -162)
+rotation = 6.28318
+scale = Vector2(2, 2)
+texture = ExtResource("8_ewng3")
+
+[node name="elementos" type="ParallaxLayer" parent="Background"]
+position = Vector2(-361, 72)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/elementos"]
+position = Vector2(843, 140)
+scale = Vector2(4, 4)
+texture = ExtResource("9_ah3xb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/elementos"]
+position = Vector2(1803, 140)
+rotation = 6.28318
+scale = Vector2(4, 4)
+texture = ExtResource("9_ah3xb")

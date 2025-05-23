@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://dyw20ux6xa4im"]
+[gd_scene load_steps=24 format=3 uid="uid://dyw20ux6xa4im"]
 
 [ext_resource type="Texture2D" uid="uid://cerov2hc2m7s2" path="res://assets/sprites/orb/orb_Alegria.png" id="1_0twot"]
 [ext_resource type="Script" uid="uid://c45snfyrguqup" path="res://scripts/personagem/Orb.gd" id="1_byku7"]
 [ext_resource type="Texture2D" uid="uid://bpdu2t8h84j8a" path="res://assets/sprites/orb/orb_Medo.png" id="1_mrbsd"]
 [ext_resource type="Texture2D" uid="uid://p81piu6ki6pl" path="res://assets/sprites/orb/orb_Tristeza.png" id="2_byku7"]
 [ext_resource type="Texture2D" uid="uid://cye21kkbn72eg" path="res://assets/sprites/orb/orb_Raiva.png" id="4_3hajh"]
+[ext_resource type="AudioStream" uid="uid://ctrfr1aj1asvo" path="res://assets/audio/coin-recieved-230517.mp3" id="6_3hajh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iy1yq"]
 atlas = ExtResource("1_0twot")
@@ -108,7 +109,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"vazio",
-"speed": 15.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -156,5 +157,8 @@ animation = &"vazio"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(373, 252)
 shape = SubResource("CircleShape2D_3hajh")
+
+[node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3hajh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
