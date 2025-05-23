@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://ci0fcekrvjptb"]
+
+[ext_resource type="Texture2D" uid="uid://xkaekfu7xfan" path="res://assets/sprites/borboletas/Pink.png" id="1_asgi2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcje8"]
+atlas = ExtResource("1_asgi2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sumd"]
+atlas = ExtResource("1_asgi2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onaxy"]
+atlas = ExtResource("1_asgi2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0613"]
+atlas = ExtResource("1_asgi2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_023f5"]
+atlas = ExtResource("1_asgi2")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcje8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sumd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onaxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0613")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_023f5")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]

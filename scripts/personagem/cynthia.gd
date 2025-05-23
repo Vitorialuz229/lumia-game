@@ -11,7 +11,9 @@ var float_time := 0.0
 @onready var orb_follow_point = $OrbFollowPoint
 
 func _physics_process(delta):
-	# Movimento e animações (igual ao seu)
+	global_position.x = clamp(global_position.x, 50, 3000) # Mudar o limite da direita depois
+	global_position.y = clamp(global_position.y, 50, 670)
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	

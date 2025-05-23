@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://ci0gj0hw1clhj"]
+
+[ext_resource type="Texture2D" uid="uid://k4fv4iuc5152" path="res://assets/sprites/borboletas/Yellow.png" id="1_xeu7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcmn1"]
+atlas = ExtResource("1_xeu7e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuekg"]
+atlas = ExtResource("1_xeu7e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xchk"]
+atlas = ExtResource("1_xeu7e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6l8g"]
+atlas = ExtResource("1_xeu7e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dxjx"]
+atlas = ExtResource("1_xeu7e")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcmn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuekg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xchk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6l8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dxjx")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
