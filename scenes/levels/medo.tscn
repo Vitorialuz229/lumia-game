@@ -198,21 +198,24 @@ size = Vector2(91, 133)
 [node name="Medo" type="Node2D"]
 position = Vector2(64, 37)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Cynthia" type="CharacterBody2D" parent="."]
 position = Vector2(570, 510)
 script = ExtResource("1_73op0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cynthia"]
 position = Vector2(-3, -26)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_f78mv")
 animation = &"run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cynthia"]
 position = Vector2(-11.5, 2.5)
 shape = SubResource("RectangleShape2D_cq0ic")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" node_paths=PackedStringArray("target")]
+[node name="Camera2D" type="Camera2D" parent="Cynthia" node_paths=PackedStringArray("target")]
 position = Vector2(6, -187)
 script = ExtResource("5_wsp0g")
 target = NodePath("..")
+
+[node name="OrbFollowPoint" type="Marker2D" parent="Cynthia"]
+position = Vector2(0, -300)

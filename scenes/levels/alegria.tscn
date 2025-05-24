@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bgmdsyscwe8kj" path="res://assets/cenario/Alegria/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg" id="7_uowpj"]
 [ext_resource type="Texture2D" uid="uid://cnuqj4ftmsotd" path="res://assets/cenario/Alegria/pngwing.com (39).png" id="8_6yfb7"]
 [ext_resource type="Texture2D" uid="uid://c5xsabifvlwrp" path="res://assets/cenario/Alegria/parallax-forest-front-trees.png" id="8_643ss"]
-[ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scenes/levels/container_borboletas.gd" id="9_uowpj"]
+[ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scripts/personagem/container_borboletas.gd" id="9_uowpj"]
 [ext_resource type="Texture2D" uid="uid://cd1xgbdbv51h5" path="res://assets/cenario/Alegria/pngwing.com (40).png" id="10_wipxv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uowpj"]

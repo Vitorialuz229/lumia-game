@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bu1rw3nrhhrdf" path="res://assets/cenario/Fim/country-platform-back.png" id="7_qmi0h"]
 [ext_resource type="Texture2D" uid="uid://xbfr70m26chn" path="res://assets/cenario/Fim/Rainbow Forest - Free Pixel-Art.png" id="9_hjr1r"]
 [ext_resource type="Texture2D" uid="uid://bnp7733po1tsv" path="res://assets/cenario/Fim/Rainbow.png" id="10_13xqk"]
-[ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scenes/levels/container_borboletas.gd" id="10_pxr7g"]
+[ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scripts/personagem/container_borboletas.gd" id="10_pxr7g"]
 [ext_resource type="Texture2D" uid="uid://bxl5pb4vyg4vf" path="res://assets/sprites/outros/spritesheet.png" id="10_ww6y3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxr7g"]

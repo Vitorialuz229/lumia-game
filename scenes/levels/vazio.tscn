@@ -1,13 +1,17 @@
-[gd_scene load_steps=39 format=4 uid="uid://byomk0tq4f3oc"]
+[gd_scene load_steps=42 format=4 uid="uid://byomk0tq4f3oc"]
 
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_p1ufu"]
 [ext_resource type="Texture2D" uid="uid://c1wxqxf5osynt" path="res://assets/cenario/Hills Layer 05.png" id="1_pj5wn"]
 [ext_resource type="Script" uid="uid://dldfqvlobtcym" path="res://scripts/levels/Vazio.gd" id="1_uml74"]
 [ext_resource type="Texture2D" uid="uid://c27w8dfx8gtnk" path="res://assets/sprites/personagem/Vazio/Idle_vazio.png" id="2_f5tc2"]
 [ext_resource type="Texture2D" uid="uid://dpt5fhjxjxfo2" path="res://assets/sprites/personagem/Vazio/jump_vazio.png" id="3_pj5wn"]
+[ext_resource type="Texture2D" uid="uid://d30rlo7ho3rex" path="res://assets/cenario/Vazio/fundo-abstrato-com-textura-de-tinta-oleo-cinza.jpg" id="3_ydlh0"]
+[ext_resource type="Texture2D" uid="uid://cf3eggi3i4ord" path="res://assets/cenario/Vazio/pngwing.com (4) (2).png" id="4_7bi52"]
 [ext_resource type="Texture2D" uid="uid://ccupcp5uyvi5a" path="res://assets/sprites/personagem/Vazio/run_vazio.png" id="4_7r4vr"]
+[ext_resource type="Texture2D" uid="uid://be4ageotefvdn" path="res://assets/cenario/Vazio/pngwing.com (23) (1).png" id="4_20ei5"]
+[ext_resource type="Texture2D" uid="uid://dobynkgu6en51" path="res://assets/cenario/Vazio/pngwing.com (25) (1).png" id="5_7bi52"]
 [ext_resource type="Script" uid="uid://c6lwrxwupk30h" path="res://scripts/personagem/camera_2d.gd" id="5_f5tc2"]
-[ext_resource type="Texture2D" uid="uid://dqtsvspl48d7a" path="res://assets/cenario/JWDLx5AZBtI (1).jpg" id="7_7r4vr"]
+[ext_resource type="Texture2D" uid="uid://c3cujymj6dj1" path="res://assets/cenario/Vazio/pngwing.com (24) (1).png" id="6_g0p3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydlh0"]
 texture = ExtResource("1_pj5wn")
@@ -80,11 +84,7 @@ texture = ExtResource("1_pj5wn")
 sources/0 = SubResource("TileSetAtlasSource_ydlh0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pj5wn"]
-size = Vector2(2708, 37)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_7r4vr"]
-a = Vector2(0, -34)
-b = Vector2(0, 689)
+size = Vector2(7685, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydlh0"]
 atlas = ExtResource("2_f5tc2")
@@ -283,6 +283,7 @@ script = ExtResource("1_uml74")
 collision_layer = 4
 
 [node name="Layer0" type="TileMapLayer" parent="chão"]
+modulate = Color(0.237539, 0.237539, 0.237539, 1)
 use_parent_material = true
 position = Vector2(754, 62)
 scale = Vector2(3, 3)
@@ -290,24 +291,127 @@ tile_map_data = PackedByteArray("AADv/wsAAAAAAA4AAADv/wwAAAAAAA8AAADw/wsAAAABAA4
 tile_set = SubResource("TileSet_7r4vr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
-position = Vector2(1288, 666)
+position = Vector2(3776.5, 666)
 shape = SubResource("RectangleShape2D_pj5wn")
 
-[node name="fundo" type="ParallaxBackground" parent="."]
+[node name="cenario" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="fundo"]
-motion_mirroring = Vector2(1275, 0)
+[node name="fundo" type="ParallaxLayer" parent="cenario"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(3000.5, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="fundo/ParallaxLayer"]
-position = Vector2(640, 365)
-scale = Vector2(0.999609, 1.00139)
-texture = ExtResource("7_7r4vr")
+[node name="Sprite2D" type="Sprite2D" parent="cenario/fundo"]
+position = Vector2(743, 221)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ydlh0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="cenario/fundo"]
+position = Vector2(2243.5, 221)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ydlh0")
+flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-76, 0)
-shape = SubResource("SegmentShape2D_7r4vr")
+[node name="arvores" type="ParallaxLayer" parent="cenario"]
+modulate = Color(0.497474, 0.497474, 0.497474, 0.870588)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(2900, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(1048, 362)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_20ei5")
+
+[node name="Sprite2D9" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(2512, 362)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_20ei5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(44, 452)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_7bi52")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(917, 563)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_7bi52")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(1439, 574)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_7bi52")
+flip_h = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(1990, 460)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_7bi52")
+flip_h = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(1573, 391)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_g0p3d")
+flip_h = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(572, 329)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_7bi52")
+flip_h = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(324, 603)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_g0p3d")
+flip_h = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(2412, 592)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_g0p3d")
+flip_h = true
+
+[node name="Sprite2D11" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(743, 592)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_g0p3d")
+flip_h = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="cenario/arvores"]
+position = Vector2(1228, 614)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_g0p3d")
+flip_h = true
+
+[node name="nuvens" type="ParallaxLayer" parent="cenario"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(3000.5, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="cenario/nuvens"]
+position = Vector2(325, 142)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7bi52")
+
+[node name="Sprite2D2" type="Sprite2D" parent="cenario/nuvens"]
+position = Vector2(872, 311)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7bi52")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="cenario/nuvens"]
+position = Vector2(1780, 143)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7bi52")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="cenario/nuvens"]
+position = Vector2(2529, 215)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7bi52")
+flip_h = true
 
 [node name="Cynthia" type="CharacterBody2D" parent="."]
 position = Vector2(566, 578)
@@ -331,17 +435,9 @@ shape = SubResource("RectangleShape2D_j0rau")
 position = Vector2(6, -258)
 limit_left = 0
 limit_top = 0
-limit_right = 1000000
 limit_bottom = 720
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("5_f5tc2")
 target = NodePath("..")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1483, 205)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1025, -240)
-shape = SubResource("SegmentShape2D_7r4vr")

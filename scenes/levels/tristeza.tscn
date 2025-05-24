@@ -82,7 +82,7 @@ texture = ExtResource("1_sd4qr")
 sources/1 = SubResource("TileSetAtlasSource_8nn3p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r60qd"]
-size = Vector2(2708, 85.5)
+size = Vector2(7688, 85.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r60qd"]
 atlas = ExtResource("2_wq1a3")
@@ -298,7 +298,7 @@ tile_map_data = PackedByteArray("AADv/wsAAQAAAA8AAADw/wsAAQABAA8AAADx/wsAAQACAA8
 tile_set = SubResource("TileSet_8nn3p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
-position = Vector2(1288, 641.75)
+position = Vector2(3778, 641.75)
 shape = SubResource("RectangleShape2D_r60qd")
 
 [node name="Cynthia" type="CharacterBody2D" parent="."]
@@ -344,12 +344,18 @@ position = Vector2(0, -300)
 
 [node name="fundo" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(1275, 0)
+motion_mirroring = Vector2(2542, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/fundo"]
 position = Vector2(644.448, 350.216)
 scale = Vector2(2.0801, 1.98199)
 texture = ExtResource("8_sd4qr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/fundo"]
+position = Vector2(1913, 352)
+scale = Vector2(2.0801, 1.98199)
+texture = ExtResource("8_sd4qr")
+flip_h = true
 
 [node name="elementos" type="ParallaxLayer" parent="Background"]
 position = Vector2(-361, 72)
