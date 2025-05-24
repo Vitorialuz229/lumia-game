@@ -8,7 +8,7 @@
 [node name="Borboletas" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("1_tclrh")
 animation = &"fly"
 autoplay = "fly"
