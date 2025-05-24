@@ -14,6 +14,10 @@ config/name="Teste"
 run/main_scene="uid://i40wm6dp7skt"
 config/features=PackedStringArray("4.4", "Mobile")
 
+[audio]
+
+buses/default_bus_layout="uid://j4ea2hcvrtt7"
+
 [autoload]
 
 Globals="*res://scripts/Global.gd"

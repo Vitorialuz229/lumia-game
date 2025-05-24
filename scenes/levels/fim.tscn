@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://c4isc05qtjjcy"]
+[gd_scene load_steps=63 format=4 uid="uid://c4isc05qtjjcy"]
 
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_ekig3"]
 [ext_resource type="Texture2D" uid="uid://bp0m83nxso7xt" path="res://assets/cenario/Fim/Rainbow Forest - Ground.png" id="1_hjr1r"]
@@ -11,6 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://bnp7733po1tsv" path="res://assets/cenario/Fim/Rainbow.png" id="10_13xqk"]
 [ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scripts/personagem/container_borboletas.gd" id="10_pxr7g"]
 [ext_resource type="Texture2D" uid="uid://bxl5pb4vyg4vf" path="res://assets/sprites/outros/spritesheet.png" id="10_ww6y3"]
+
+[sub_resource type="GDScript" id="GDScript_pxr7g"]
+script/source = "extends Node2D  # Não herda do BaseLevel
+
+@onready var cynthia = $Cynthia
+
+func _ready():
+    for orb in cynthia.following_orbs:
+        orb.get_node(\"AnimationPlayer\").play(\"celebrate\")
+    $AnimationPlayer.play(\"ending_sequence\")"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxr7g"]
 texture = ExtResource("1_hjr1r")
@@ -4383,6 +4393,7 @@ animations = [{
 
 [node name="Fim" type="Node2D"]
 position = Vector2(64, 38)
+script = SubResource("GDScript_pxr7g")
 
 [node name="chão" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -4536,3 +4547,9 @@ flip_h = true
 script = ExtResource("10_pxr7g")
 butterfly_count = 40
 spawn_area = Rect2(1000, 0, 1280, 720)
+
+[node name="OrbSpawns" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="OrbSpawns"]
+
+[node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]

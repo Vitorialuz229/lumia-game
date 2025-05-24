@@ -10,6 +10,12 @@ var float_time := 0.0
 @onready var sprite = $AnimatedSprite2D
 @onready var orb_follow_point = $OrbFollowPoint
 
+func _ready():
+	if not has_node("OrbContainer"):
+		var container = Node2D.new()
+		container.name = "OrbContainer"
+		add_child(container)
+
 func _physics_process(delta):
 	global_position.x = clamp(global_position.x, 50, 100000) # Mudar o limite da direita depois
 	global_position.y = clamp(global_position.y, 50, 670)
@@ -36,25 +42,26 @@ func _physics_process(delta):
 		sprite.flip_h = direction < 0
 
 	update_following_orbs(delta)
-
+	
 func add_following_orb(orb):
-	if not following_orbs.has(orb):
+	if not following_orbs.has(orb) and is_instance_valid(orb):
 		following_orbs.append(orb)
-		call_deferred("_reparent_orb", orb)
-		orb.z_index = z_index - 1
-		orb.z_as_relative = false
-		var horizontal_offset = randf_range(-30, 30)
-		orb.position = orb_follow_point.position + Vector2(horizontal_offset, 0)
-
-func _reparent_orb(orb):
-	if orb.get_parent():
-		orb.get_parent().remove_child(orb)
-	add_child(orb)
+		
+		# Remove de qualquer pai anterior de forma segura
+		if is_instance_valid(orb.get_parent()):
+			orb.get_parent().remove_child(orb)
+		
+		# Adiciona ao container de orbs
+		$OrbContainer.add_child(orb)
+		
+		# Configuração inicial
+		orb.position = Vector2.ZERO
+		orb.global_position = orb_follow_point.global_position
+		orb.scale = Vector2.ONE
 
 func update_following_orbs(delta):
 	float_time += delta * 3
 	var back_distance = 250
-	var vertical_base_offset = 0 
 	var spacing = 25
 
 	for i in range(following_orbs.size()):
@@ -64,6 +71,9 @@ func update_following_orbs(delta):
 			var vertical_float = sin(float_time + i) * 5
 			var side = 1 if not sprite.flip_h else -1
 
-			var target_pos = orb_follow_point.position + Vector2(side * back_distance + spread, vertical_base_offset + vertical_float)
+			var target_pos = orb_follow_point.position + Vector2(
+				side * (back_distance + spread),
+				vertical_float
+			)
 			orb.position = orb.position.lerp(target_pos, 10 * delta)
 			orb.scale.x = 1 if sprite.flip_h else -1
