@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://c5xsabifvlwrp" path="res://assets/cenario/Alegria/parallax-forest-front-trees.png" id="10_hwky7"]
 [ext_resource type="Texture2D" uid="uid://cd1xgbdbv51h5" path="res://assets/cenario/Alegria/pngwing.com (40).png" id="11_tdks5"]
 [ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scripts/personagem/container_borboletas.gd" id="12_7ljk6"]
-[ext_resource type="AudioStream" uid="uid://ds21y4kn4ecp2" path="res://assets/audio/Alegria_Piano.mp3" id="13_w2j1s"]
+[ext_resource type="AudioStream" uid="uid://cedxg6m6phsua" path="res://assets/audio/Alegria.ogg" id="13_17xmf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uowpj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17xmf"]
 texture = ExtResource("2_qqnqj")
 13:5/0 = 0
 14:5/0 = 0
@@ -135,7 +135,7 @@ texture = ExtResource("2_qqnqj")
 23:13/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_643ss"]
-sources/0 = SubResource("TileSetAtlasSource_uowpj")
+sources/0 = SubResource("TileSetAtlasSource_17xmf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uowpj"]
 size = Vector2(2708, 85.5)
@@ -435,6 +435,7 @@ position = Vector2(326, 349)
 [node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_w2j1s")
+stream = ExtResource("13_17xmf")
 volume_db = 24.0
 autoplay = true
+bus = &"music"

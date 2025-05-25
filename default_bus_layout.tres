@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://j4ea2hcvrtt7"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://j4ea2hcvrtt7"]
 
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
 resource_name = "Chorus"
@@ -18,37 +18,52 @@ resource_name = "Reverb"
 [sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_j3pel"]
 resource_name = "HighPassFilter"
 
-[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_j3pel"]
-resource_name = "Panner"
-
-[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_g28q7"]
-resource_name = "Chorus"
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_j3pel"]
+resource_name = "StereoEnhance"
 
 [resource]
-bus/0/volume_db = -23.3524
+bus/0/volume_db = -15.1981
 bus/0/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
-bus/0/effect/0/enabled = true
+bus/0/effect/0/enabled = false
 bus/0/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
-bus/0/effect/1/enabled = true
+bus/0/effect/1/enabled = false
 bus/0/effect/2/effect = SubResource("AudioEffectRecord_j3pel")
 bus/0/effect/2/enabled = false
 bus/0/effect/3/effect = SubResource("AudioEffectReverb_j3pel")
-bus/0/effect/3/enabled = true
+bus/0/effect/3/enabled = false
 bus/0/effect/4/effect = SubResource("AudioEffectHighPassFilter_j3pel")
-bus/0/effect/4/enabled = true
-bus/1/name = &"music"
-bus/1/solo = true
+bus/0/effect/4/enabled = false
+bus/1/name = &"sfx"
+bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
-bus/1/send = &"Master"
-bus/1/effect/0/effect = SubResource("AudioEffectPanner_j3pel")
+bus/1/send = &""
+bus/1/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
 bus/1/effect/0/enabled = false
-bus/1/effect/1/effect = SubResource("AudioEffectChorus_g28q7")
-bus/1/effect/1/enabled = false
-bus/2/name = &"sfx"
+bus/1/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectRecord_j3pel")
+bus/1/effect/2/enabled = false
+bus/1/effect/3/effect = SubResource("AudioEffectReverb_j3pel")
+bus/1/effect/3/enabled = true
+bus/1/effect/4/effect = SubResource("AudioEffectHighPassFilter_j3pel")
+bus/1/effect/4/enabled = true
+bus/2/name = &"music"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = 0.0
-bus/2/send = &"Master"
+bus/2/volume_db = -5.04538
+bus/2/send = &""
+bus/2/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
+bus/2/effect/0/enabled = false
+bus/2/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/2/effect/1/enabled = false
+bus/2/effect/2/effect = SubResource("AudioEffectRecord_j3pel")
+bus/2/effect/2/enabled = false
+bus/2/effect/3/effect = SubResource("AudioEffectReverb_j3pel")
+bus/2/effect/3/enabled = false
+bus/2/effect/4/effect = SubResource("AudioEffectHighPassFilter_j3pel")
+bus/2/effect/4/enabled = false
+bus/2/effect/5/effect = SubResource("AudioEffectStereoEnhance_j3pel")
+bus/2/effect/5/enabled = false

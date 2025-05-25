@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://byomk0tq4f3oc"]
+[gd_scene load_steps=44 format=4 uid="uid://byomk0tq4f3oc"]
 
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_p1ufu"]
 [ext_resource type="Texture2D" uid="uid://c1wxqxf5osynt" path="res://assets/cenario/Hills Layer 05.png" id="1_pj5wn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c6lwrxwupk30h" path="res://scripts/personagem/camera_2d.gd" id="5_f5tc2"]
 [ext_resource type="Texture2D" uid="uid://c3cujymj6dj1" path="res://assets/cenario/Vazio/pngwing.com (24) (1).png" id="6_g0p3d"]
 [ext_resource type="PackedScene" uid="uid://dyw20ux6xa4im" path="res://scenes/personagem/orb.tscn" id="13_g0p3d"]
+[ext_resource type="AudioStream" uid="uid://dpnhshn63h06i" path="res://assets/audio/Vazio.ogg" id="14_fv7ie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydlh0"]
 texture = ExtResource("1_pj5wn")
@@ -445,3 +446,10 @@ target = NodePath("..")
 
 [node name="Orb" parent="." instance=ExtResource("13_g0p3d")]
 position = Vector2(931, 488)
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_fv7ie")
+volume_db = 24.0
+autoplay = true
+bus = &"music"
+playback_type = 1

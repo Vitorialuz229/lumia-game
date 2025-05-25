@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://c4isc05qtjjcy"]
+[gd_scene load_steps=64 format=4 uid="uid://c4isc05qtjjcy"]
 
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_ekig3"]
 [ext_resource type="Texture2D" uid="uid://bp0m83nxso7xt" path="res://assets/cenario/Fim/Rainbow Forest - Ground.png" id="1_hjr1r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bnp7733po1tsv" path="res://assets/cenario/Fim/Rainbow.png" id="10_13xqk"]
 [ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scripts/personagem/container_borboletas.gd" id="10_pxr7g"]
 [ext_resource type="Texture2D" uid="uid://bxl5pb4vyg4vf" path="res://assets/sprites/outros/spritesheet.png" id="10_ww6y3"]
+[ext_resource type="AudioStream" uid="uid://datk2vu152otg" path="res://assets/audio/Fim.ogg" id="12_ww6y3"]
 
 [sub_resource type="GDScript" id="GDScript_pxr7g"]
 script/source = "extends Node2D  # Não herda do BaseLevel
@@ -18,9 +19,10 @@ script/source = "extends Node2D  # Não herda do BaseLevel
 @onready var cynthia = $Cynthia
 
 func _ready():
-    for orb in cynthia.following_orbs:
-        orb.get_node(\"AnimationPlayer\").play(\"celebrate\")
-    $AnimationPlayer.play(\"ending_sequence\")"
+	for orb in cynthia.following_orbs:
+		orb.get_node(\"AnimationPlayer\").play(\"celebrate\")
+	$AnimationPlayer.play(\"ending_sequence\")
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxr7g"]
 texture = ExtResource("1_hjr1r")
@@ -4553,3 +4555,9 @@ spawn_area = Rect2(1000, 0, 1280, 720)
 [node name="Marker2D" type="Marker2D" parent="OrbSpawns"]
 
 [node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ww6y3")
+volume_db = 24.0
+autoplay = true
+bus = &"music"

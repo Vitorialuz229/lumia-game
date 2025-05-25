@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bal6ryupmfrkj"]
+[gd_scene load_steps=43 format=4 uid="uid://bal6ryupmfrkj"]
 
 [ext_resource type="Script" uid="uid://b8soerimujrgl" path="res://scripts/levels/tristeza.gd" id="1_p6ip4"]
 [ext_resource type="Texture2D" uid="uid://bsox408jc2u3k" path="res://assets/cenario/Tristeza/Hills Layer 05 (1).png" id="2_l0eyr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cfx15sfonqtdp" path="res://assets/cenario/Tristeza/Captura de tela 2025-05-23 215054.png" id="9_4aryb"]
 [ext_resource type="Texture2D" uid="uid://dbwqmjgw13viv" path="res://assets/cenario/Tristeza/pngwing.com (28) (1).png" id="10_eflgy"]
 [ext_resource type="Texture2D" uid="uid://t62qvp7h5kvm" path="res://assets/cenario/Tristeza/pngwing.com (4) (1).png" id="11_iyclv"]
+[ext_resource type="AudioStream" uid="uid://cjjaljhl0dlnl" path="res://assets/audio/Tristeza.ogg" id="12_l0eyr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nn3p"]
 texture = ExtResource("2_l0eyr")
@@ -332,7 +333,7 @@ target = NodePath("..")
 [node name="RainParticles2D" type="GPUParticles2D" parent="Cynthia/Camera2D"]
 modulate = Color(0.521569, 0.784314, 0.996078, 0.85098)
 position = Vector2(-1048, -351)
-amount = 2300
+amount = 2400
 amount_ratio = 0.7
 texture = ExtResource("8_cf476")
 lifetime = 1.3
@@ -344,46 +345,46 @@ position = Vector2(0, -300)
 
 [node name="OrbContainer" type="Node2D" parent="Cynthia"]
 
-[node name="Background" type="ParallaxBackground" parent="."]
+[node name="Cenario" type="ParallaxBackground" parent="."]
 
-[node name="fundo" type="ParallaxLayer" parent="Background"]
+[node name="fundo" type="ParallaxLayer" parent="Cenario"]
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(2542, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/fundo"]
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/fundo"]
 position = Vector2(644.448, 350.216)
 scale = Vector2(2.0801, 1.98199)
 texture = ExtResource("9_4aryb")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background/fundo"]
+[node name="Sprite2D2" type="Sprite2D" parent="Cenario/fundo"]
 position = Vector2(1913, 352)
 scale = Vector2(2.0801, 1.98199)
 texture = ExtResource("9_4aryb")
 flip_h = true
 
-[node name="elementos" type="ParallaxLayer" parent="Background"]
+[node name="elementos" type="ParallaxLayer" parent="Cenario"]
 position = Vector2(-361, 72)
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1700, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/elementos"]
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/elementos"]
 modulate = Color(0.0745098, 0.152941, 1, 1)
 position = Vector2(842, 325)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("10_eflgy")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background/elementos"]
+[node name="Sprite2D2" type="Sprite2D" parent="Cenario/elementos"]
 modulate = Color(0.0745098, 0.152941, 1, 1)
 position = Vector2(1716, 359)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("10_eflgy")
 flip_h = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="Background/elementos"]
+[node name="Sprite2D3" type="Sprite2D" parent="Cenario/elementos"]
 position = Vector2(721, 202)
 texture = ExtResource("11_iyclv")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Background/elementos"]
+[node name="Sprite2D4" type="Sprite2D" parent="Cenario/elementos"]
 position = Vector2(1487, 142)
 texture = ExtResource("11_iyclv")
 
@@ -394,3 +395,9 @@ position = Vector2(308, 290)
 
 [node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
 position = Vector2(191, 294)
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_l0eyr")
+volume_db = 24.0
+autoplay = true
+bus = &"music"
