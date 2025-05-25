@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bal6ryupmfrkj"]
+[gd_scene load_steps=45 format=4 uid="uid://bal6ryupmfrkj"]
 
 [ext_resource type="Script" uid="uid://b8soerimujrgl" path="res://scripts/levels/tristeza.gd" id="1_p6ip4"]
 [ext_resource type="Texture2D" uid="uid://bsox408jc2u3k" path="res://assets/cenario/Tristeza/Hills Layer 05 (1).png" id="2_l0eyr"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dbwqmjgw13viv" path="res://assets/cenario/Tristeza/pngwing.com (28) (1).png" id="10_eflgy"]
 [ext_resource type="Texture2D" uid="uid://t62qvp7h5kvm" path="res://assets/cenario/Tristeza/pngwing.com (4) (1).png" id="11_iyclv"]
 [ext_resource type="AudioStream" uid="uid://cjjaljhl0dlnl" path="res://assets/audio/Tristeza.ogg" id="12_l0eyr"]
+[ext_resource type="AudioStream" uid="uid://cv3vm6uw17w0o" path="res://assets/audio/Rain Forest.ogg" id="13_gnumy"]
+[ext_resource type="AudioStream" uid="uid://78qcrly4dsyk" path="res://assets/audio/Steps_water-001.ogg" id="14_1j54n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nn3p"]
 texture = ExtResource("2_l0eyr")
@@ -396,8 +398,19 @@ position = Vector2(308, 290)
 [node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
 position = Vector2(191, 294)
 
-[node name="audio" type="AudioStreamPlayer" parent="."]
+[node name="Background_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_l0eyr")
 volume_db = 24.0
 autoplay = true
 bus = &"music"
+
+[node name="chuva" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_gnumy")
+volume_db = 24.0
+autoplay = true
+bus = &"music"
+
+[node name="steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_1j54n")
+volume_db = -10.0
+bus = &"effects"

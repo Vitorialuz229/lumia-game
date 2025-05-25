@@ -308,7 +308,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ydlh0")
 
 [node name="Sprite2D2" type="Sprite2D" parent="cenario/fundo"]
-position = Vector2(2243.5, 221)
+position = Vector2(2242.5, 221)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ydlh0")
 flip_h = true
@@ -445,7 +445,7 @@ script = ExtResource("5_f5tc2")
 target = NodePath("..")
 
 [node name="Orb" parent="." instance=ExtResource("13_g0p3d")]
-position = Vector2(931, 488)
+position = Vector2(61, 184)
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_fv7ie")

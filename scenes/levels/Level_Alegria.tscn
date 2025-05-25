@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://yt1cfw8y3a5i"]
+[gd_scene load_steps=45 format=4 uid="uid://yt1cfw8y3a5i"]
 
 [ext_resource type="Script" uid="uid://cepov87ros3xd" path="res://scripts/levels/Alegria.gd" id="1_17xmf"]
 [ext_resource type="Texture2D" uid="uid://bw7n2uavo6fmp" path="res://assets/cenario/Alegria/country-platform-tiles-example.png" id="2_qqnqj"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cd1xgbdbv51h5" path="res://assets/cenario/Alegria/pngwing.com (40).png" id="11_tdks5"]
 [ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scripts/personagem/container_borboletas.gd" id="12_7ljk6"]
 [ext_resource type="AudioStream" uid="uid://cedxg6m6phsua" path="res://assets/audio/Alegria.ogg" id="13_17xmf"]
+[ext_resource type="AudioStream" uid="uid://b2nffv45phke0" path="res://assets/audio/Wind and Bird.ogg" id="14_mm7i0"]
+[ext_resource type="AudioStream" uid="uid://d33ktkdqv3cs2" path="res://assets/audio/Grass Footstep Short 1.ogg" id="15_ltpru"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17xmf"]
 texture = ExtResource("2_qqnqj")
@@ -439,3 +441,14 @@ stream = ExtResource("13_17xmf")
 volume_db = 24.0
 autoplay = true
 bus = &"music"
+
+[node name="audio2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_mm7i0")
+volume_db = 24.0
+autoplay = true
+bus = &"effects"
+
+[node name="steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ltpru")
+volume_db = 5.0
+bus = &"effects"

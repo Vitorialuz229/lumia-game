@@ -1,5 +1,6 @@
-[gd_scene load_steps=64 format=4 uid="uid://c4isc05qtjjcy"]
+[gd_scene load_steps=66 format=4 uid="uid://c4isc05qtjjcy"]
 
+[ext_resource type="Script" uid="uid://cfnyl4y8i2j2n" path="res://scripts/levels/fim.gd" id="1_6ea3f"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_ekig3"]
 [ext_resource type="Texture2D" uid="uid://bp0m83nxso7xt" path="res://assets/cenario/Fim/Rainbow Forest - Ground.png" id="1_hjr1r"]
 [ext_resource type="Texture2D" uid="uid://b86svsjw62cp2" path="res://assets/sprites/personagem/Fim/Idle_Fim.png" id="2_467q2"]
@@ -12,17 +13,8 @@
 [ext_resource type="Script" uid="uid://cgdujwuc8fecp" path="res://scripts/personagem/container_borboletas.gd" id="10_pxr7g"]
 [ext_resource type="Texture2D" uid="uid://bxl5pb4vyg4vf" path="res://assets/sprites/outros/spritesheet.png" id="10_ww6y3"]
 [ext_resource type="AudioStream" uid="uid://datk2vu152otg" path="res://assets/audio/Fim.ogg" id="12_ww6y3"]
-
-[sub_resource type="GDScript" id="GDScript_pxr7g"]
-script/source = "extends Node2D  # Não herda do BaseLevel
-
-@onready var cynthia = $Cynthia
-
-func _ready():
-	for orb in cynthia.following_orbs:
-		orb.get_node(\"AnimationPlayer\").play(\"celebrate\")
-	$AnimationPlayer.play(\"ending_sequence\")
-"
+[ext_resource type="AudioStream" uid="uid://b0ttq8gxs3sl3" path="res://assets/audio/Breeze Short.ogg" id="13_ykk4w"]
+[ext_resource type="AudioStream" uid="uid://d33ktkdqv3cs2" path="res://assets/audio/Grass Footstep Short 1.ogg" id="15_2w23t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxr7g"]
 texture = ExtResource("1_hjr1r")
@@ -4395,7 +4387,7 @@ animations = [{
 
 [node name="Fim" type="Node2D"]
 position = Vector2(64, 38)
-script = SubResource("GDScript_pxr7g")
+script = ExtResource("1_6ea3f")
 
 [node name="chão" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -4561,3 +4553,14 @@ stream = ExtResource("12_ww6y3")
 volume_db = 24.0
 autoplay = true
 bus = &"music"
+
+[node name="vento" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ykk4w")
+volume_db = 24.0
+autoplay = true
+bus = &"music"
+
+[node name="steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_2w23t")
+volume_db = 5.0
+bus = &"effects"

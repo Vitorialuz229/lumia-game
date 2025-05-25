@@ -9,15 +9,21 @@ var float_time := 0.0
 
 @onready var sprite = $AnimatedSprite2D
 @onready var orb_follow_point = $OrbFollowPoint
+@onready var steps_sound = null
 
 func _ready():
 	if not has_node("OrbContainer"):
 		var container = Node2D.new()
 		container.name = "OrbContainer"
 		add_child(container)
+	
+	if get_parent().has_node("steps"):
+		steps_sound = get_parent().get_node("steps")
+	else:
+		steps_sound = null
 
 func _physics_process(delta):
-	global_position.x = clamp(global_position.x, 50, 100000) # Mudar o limite da direita depois
+	global_position.x = clamp(global_position.x, 50, 100000)
 	global_position.y = clamp(global_position.y, 50, 670)
 	
 	if not is_on_floor():
@@ -30,7 +36,8 @@ func _physics_process(delta):
 		velocity.y = jump_force
 	
 	move_and_slide()
-
+	
+	# Animações
 	if not is_on_floor():
 		sprite.play("jump")
 	elif abs(velocity.x) > 0.1:
@@ -41,20 +48,25 @@ func _physics_process(delta):
 	if direction != 0:
 		sprite.flip_h = direction < 0
 
-	update_following_orbs(delta)
+	# Controle do som de passos (loop enquanto corre)
+	var is_running = is_on_floor() and abs(velocity.x) > 0.1
+	if steps_sound:
+		if is_running and not steps_sound.playing:
+			steps_sound.play()
+		elif not is_running and steps_sound.playing:
+			steps_sound.stop()
 	
+	update_following_orbs(delta)
+
 func add_following_orb(orb):
 	if not following_orbs.has(orb) and is_instance_valid(orb):
 		following_orbs.append(orb)
 		
-		# Remove de qualquer pai anterior de forma segura
 		if is_instance_valid(orb.get_parent()):
 			orb.get_parent().remove_child(orb)
 		
-		# Adiciona ao container de orbs
 		$OrbContainer.add_child(orb)
 		
-		# Configuração inicial
 		orb.position = Vector2.ZERO
 		orb.global_position = orb_follow_point.global_position
 		orb.scale = Vector2.ONE

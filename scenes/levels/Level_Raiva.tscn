@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://4bggfcmnxwc0"]
+[gd_scene load_steps=44 format=4 uid="uid://4bggfcmnxwc0"]
 
 [ext_resource type="Script" uid="uid://w8trlydf0rrw" path="res://scripts/levels/raiva.gd" id="1_5i070"]
 [ext_resource type="Texture2D" uid="uid://hritrciixb88" path="res://assets/cenario/Raiva/Hills Layer 05 (1).png" id="2_rq7ql"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bbr3eyvq7gwd1" path="res://assets/cenario/Raiva/3.png" id="11_li2jl"]
 [ext_resource type="Texture2D" uid="uid://dbwqmjgw13viv" path="res://assets/cenario/Tristeza/pngwing.com (28) (1).png" id="12_pvasq"]
 [ext_resource type="AudioStream" uid="uid://pqunkm1xjtuv" path="res://assets/audio/Raiva.ogg" id="13_rq7ql"]
+[ext_resource type="AudioStream" uid="uid://d33ktkdqv3cs2" path="res://assets/audio/Grass Footstep Short 1.ogg" id="14_ch3pb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6csy"]
 texture = ExtResource("2_rq7ql")
@@ -406,3 +407,8 @@ stream = ExtResource("13_rq7ql")
 volume_db = 24.0
 autoplay = true
 bus = &"music"
+
+[node name="steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ch3pb")
+volume_db = 6.0
+bus = &"effects"
