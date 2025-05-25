@@ -1,5 +1,6 @@
 extends "res://scripts/levels/base_level.gd"
 
+
 func get_level_orb_type() -> String:
 	return "medo"
 
@@ -9,8 +10,10 @@ func get_level_orb_type() -> String:
 var min_interval = 1.0
 var max_interval = 7.0
 
+
 func _ready():
 	play_random_sound()
+
 
 func play_random_sound() -> void:
 	var sounds = [steps_approach, laughing]

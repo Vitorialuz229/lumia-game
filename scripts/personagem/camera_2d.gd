@@ -4,9 +4,11 @@ extends Camera2D
 
 var fixed_y = 0.0
 
+
 func _ready():
 	if target:
 		fixed_y = global_position.y
+
 
 func _process(_delta):
 	if target:

@@ -1,7 +1,9 @@
 extends BaseLevel
 
+
 func _ready():
 	show_collected_orbs()
+
 
 func show_collected_orbs():
 	if Globals.load_game():
