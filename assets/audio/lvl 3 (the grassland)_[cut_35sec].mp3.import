@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1qdurcrgmuq7"
+path="res://.godot/imported/lvl 3 (the grassland)_[cut_35sec].mp3-335b214a7f47e57ae5c03864b2fa7e5b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/lvl 3 (the grassland)_[cut_35sec].mp3"
+dest_files=["res://.godot/imported/lvl 3 (the grassland)_[cut_35sec].mp3-335b214a7f47e57ae5c03864b2fa7e5b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
