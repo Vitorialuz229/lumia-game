@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpxffl4yfcj1p"]
+
+[ext_resource type="Script" uid="uid://cfdsmkovbq1b7" path="res://scripts/ui/SettingsMenu.gd" id="1_gtm51"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gtm51")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.5
+offset_top = -120.0
+offset_right = 27.5
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Voltar" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Voltar"
+
+[connection signal="pressed" from="Menu/Voltar" to="." method="_on_BtnBack_pressed"]

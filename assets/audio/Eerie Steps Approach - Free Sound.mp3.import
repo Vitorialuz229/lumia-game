@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi705r3mb6ata"
+path="res://.godot/imported/Eerie Steps Approach - Free Sound.mp3-60894ae1161c0aa3da93f66d50e90ac7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Eerie Steps Approach - Free Sound.mp3"
+dest_files=["res://.godot/imported/Eerie Steps Approach - Free Sound.mp3-60894ae1161c0aa3da93f66d50e90ac7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

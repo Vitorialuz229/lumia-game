@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cv3vm6uw17w0o"
+path="res://.godot/imported/Rain Forest.ogg-728e8252731806fb7b94484d772a45eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Rain Forest.ogg"
+dest_files=["res://.godot/imported/Rain Forest.ogg-728e8252731806fb7b94484d772a45eb.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b2nffv45phke0"
+path="res://.godot/imported/Wind and Bird.ogg-ec3c50128fe2cc7cf4e9912eed9cd6fd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Wind and Bird.ogg"
+dest_files=["res://.godot/imported/Wind and Bird.ogg-ec3c50128fe2cc7cf4e9912eed9cd6fd.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
