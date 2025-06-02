@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=4 uid="uid://bal6ryupmfrkj"]
+[gd_scene load_steps=47 format=4 uid="uid://bal6ryupmfrkj"]
 
 [ext_resource type="Script" uid="uid://b8soerimujrgl" path="res://scripts/levels/tristeza.gd" id="1_p6ip4"]
 [ext_resource type="Texture2D" uid="uid://bsox408jc2u3k" path="res://assets/cenario/Tristeza/Hills Layer 05 (1).png" id="2_l0eyr"]
+[ext_resource type="Texture2D" uid="uid://t4y68bjrlb2m" path="res://assets/cenario/Tristeza/1.png" id="3_laj7p"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="3_ml1s8"]
 [ext_resource type="Texture2D" uid="uid://bxamgxs32h2aj" path="res://assets/sprites/personagem/Tristeza/Idle_tristeza.png" id="4_1j54n"]
 [ext_resource type="Texture2D" uid="uid://lvvkr8lqaiow" path="res://assets/sprites/personagem/Tristeza/jump_tristeza.png" id="5_gnumy"]
@@ -87,6 +88,9 @@ sources/1 = SubResource("TileSetAtlasSource_8nn3p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r60qd"]
 size = Vector2(7688, 85.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf476"]
+size = Vector2(46.5, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r60qd"]
 atlas = ExtResource("4_1j54n")
@@ -306,9 +310,29 @@ tile_set = SubResource("TileSet_8nn3p")
 position = Vector2(3778, 641.75)
 shape = SubResource("RectangleShape2D_r60qd")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+modulate = Color(0.0745098, 0.152941, 1, 1)
+position = Vector2(148, 19)
+collision_layer = 8
+
+[node name="Sprite2D6" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(2555.8, 448)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_laj7p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(474.8, 1)
+polygon = PackedVector2Array(1739, 572, 1739, 540, 1786, 540, 1786, 512, 1830, 512, 1830, 485, 1880, 485, 1880, 458, 1927, 458, 1927, 430, 2001, 430, 2001, 374, 2114, 374, 2114, 400, 2167, 400, 2167, 432, 2216, 432, 2216, 458, 2267, 458, 2267, 489, 2315, 489, 2315, 517, 2365, 517, 2365, 546, 2415, 546, 2415, 577, 2412, 577, 2412, 554, 2361, 554, 2361, 522, 2312, 520, 2313, 494, 2262, 492, 2264, 462, 2213, 461, 2214, 436, 2162, 434, 2164, 405, 2111, 403, 2099, 392, 2019, 392, 2004, 435, 1930, 433, 1932, 458, 1923, 467, 1883, 461, 1886, 490, 1833, 487, 1835, 513, 1826, 526, 1789, 515, 1792, 542, 1742, 543, 1744, 572)
+one_way_collision = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3407, 379)
+shape = SubResource("RectangleShape2D_cf476")
+one_way_collision = true
+
 [node name="Cynthia" type="CharacterBody2D" parent="."]
 position = Vector2(566, 578)
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("3_ml1s8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cynthia"]
@@ -325,6 +349,7 @@ shape = SubResource("RectangleShape2D_0jb1f")
 position = Vector2(9, -255)
 limit_left = 0
 limit_top = 0
+limit_right = 6000
 limit_bottom = 720
 limit_smoothed = true
 drag_horizontal_enabled = true
@@ -393,10 +418,7 @@ texture = ExtResource("11_iyclv")
 [node name="OrbSpawns" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="OrbSpawns"]
-position = Vector2(308, 290)
-
-[node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
-position = Vector2(191, 294)
+position = Vector2(2282, -130)
 
 [node name="Background_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_l0eyr")

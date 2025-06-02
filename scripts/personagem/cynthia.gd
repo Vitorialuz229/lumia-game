@@ -23,9 +23,13 @@ func _ready():
 	else:
 		steps_sound = null
 
+func set_player_control(enable: bool):
+	set_physics_process(enable)
+	if not enable:
+		velocity = Vector2.ZERO
 
 func _physics_process(delta):
-	global_position.x = clamp(global_position.x, 50, 100000)
+	global_position.x = clamp(global_position.x, 50, 5970)
 	global_position.y = clamp(global_position.y, 50, 670)
 
 	if not is_on_floor():

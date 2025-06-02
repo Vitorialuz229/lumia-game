@@ -335,6 +335,7 @@ texture = ExtResource("3_iwbf0")
 
 [node name="DustParticles" type="GPUParticles2D" parent="."]
 position = Vector2(635, 364)
+scale = Vector2(2, 2)
 amount = 100
 texture = ExtResource("4_7mi0g")
 process_material = SubResource("ParticleProcessMaterial_e2per")
