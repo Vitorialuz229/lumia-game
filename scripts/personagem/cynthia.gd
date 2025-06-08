@@ -5,12 +5,11 @@ var jump_force = -600
 var gravity = 1500
 
 var following_orbs := []
-var float_time := 0.0
+var float_time : float = 0.0
 
 @onready var sprite = $AnimatedSprite2D
 @onready var orb_follow_point = $OrbFollowPoint
 @onready var steps_sound = null
-
 
 func _ready():
 	if not has_node("OrbContainer"):
@@ -18,15 +17,15 @@ func _ready():
 		container.name = "OrbContainer"
 		add_child(container)
 
-	if get_parent().has_node("steps"):
+	if get_parent() and get_parent().has_node("steps"):
 		steps_sound = get_parent().get_node("steps")
-	else:
-		steps_sound = null
 
 func set_player_control(enable: bool):
 	set_physics_process(enable)
 	if not enable:
 		velocity = Vector2.ZERO
+		if is_on_floor():
+			sprite.play("idle")
 
 func _physics_process(delta):
 	global_position.x = clamp(global_position.x, 50, 5970)
@@ -43,7 +42,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# Animações
 	if not is_on_floor():
 		sprite.play("jump")
 	elif abs(velocity.x) > 0.1:
@@ -63,7 +61,6 @@ func _physics_process(delta):
 
 	update_following_orbs(delta)
 
-
 func add_following_orb(orb):
 	if not following_orbs.has(orb) and is_instance_valid(orb):
 		following_orbs.append(orb)
@@ -72,14 +69,23 @@ func add_following_orb(orb):
 			orb.get_parent().remove_child(orb)
 
 		$OrbContainer.add_child(orb)
-
-		orb.position = Vector2.ZERO
 		orb.global_position = orb_follow_point.global_position
 		orb.scale = Vector2.ONE
 
+func update_following_orbs(delta_param):
+	if typeof(delta_param) != TYPE_FLOAT:
+		# Fallback caso delta_param chegue com tipo inesperado
+		# Idealmente, isso não deveria acontecer se a causa raiz foi corrigida
+		if get_tree() != null and get_tree().get_root() != null : #Evita erro ao sair do jogo
+			delta_param = get_physics_process_delta_time() 
+			if typeof(delta_param) != TYPE_FLOAT: # Último recurso
+				delta_param = 1.0 / Engine.get_physics_ticks_per_second() if Engine.get_physics_ticks_per_second() > 0 else 1.0/60.0
+		else: # Se não consegue pegar o delta do motor, usa um valor padrão
+			delta_param = 1.0/60.0
 
-func update_following_orbs(delta):
-	float_time += delta * 3
+
+	float_time += delta_param * 3
+
 	var back_distance = 250
 	var spacing = 25
 
@@ -87,12 +93,14 @@ func update_following_orbs(delta):
 		var orb = following_orbs[i]
 		if is_instance_valid(orb):
 			var spread = spacing * (i - (following_orbs.size() - 1) / 2.0)
-			var vertical_float = sin(float_time + i) * 5
-			var side = 1 if not sprite.flip_h else - 1
+			var vertical_float = sin(float_time + i * 0.5) * 10 
+			var side = 1.0 if not sprite.flip_h else -1.0
 
-			var target_pos = orb_follow_point.position + Vector2(
+			var target_pos_offset = Vector2(
 				side * (back_distance + spread),
 				vertical_float
 			)
-			orb.position = orb.position.lerp(target_pos, 10 * delta)
-			orb.scale.x = 1 if sprite.flip_h else - 1
+			var target_global_pos = orb_follow_point.global_position + target_pos_offset
+			orb.global_position = orb.global_position.lerp(target_global_pos, 10 * delta_param)
+			if side != orb.scale.x:
+				orb.scale.x = side

@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://j4ea2hcvrtt7"
 [autoload]
 
 Globals="*res://scripts/Global.gd"
+SceneTransition="*res://scenes/ui/SceneTransition.tscn"
 
 [display]
 

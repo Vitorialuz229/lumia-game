@@ -34,8 +34,17 @@ func _on_walk_trigger_body_entered(body):
 
 func _on_jump_trigger_body_entered(body):
 	if body.name == "Cynthia":
+		print("DEBUG: Cynthia detectada no JumpTrigger! Tocando animação do prompt.")
+		# walk_prompt.visible = false
+		# jump_prompt.visible = true 
+		# E esta flag, se você a tiver:
+		# force_show_jump_prompt = true
+
+		# Esconde o prompt de andar (se ele ainda estiver visível)
 		walk_prompt.visible = false
-		jump_prompt.visible = true
+		
+		# Adicionamos esta linha para tocar a animação:
+		animation_player.play("ShowJumpPrompt")
 
 func _on_fall_trigger_body_entered(body):
 	if body.name == "Cynthia":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=4 uid="uid://byomk0tq4f3oc"]
+[gd_scene load_steps=157 format=4 uid="uid://byomk0tq4f3oc"]
 
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_p1ufu"]
 [ext_resource type="Texture2D" uid="uid://c1wxqxf5osynt" path="res://assets/cenario/Hills Layer 05.png" id="1_pj5wn"]
@@ -102,7 +102,7 @@ texture = ExtResource("1_pj5wn")
 sources/0 = SubResource("TileSetAtlasSource_ydlh0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pj5wn"]
-size = Vector2(4288, 37)
+size = Vector2(4642, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wyj3"]
 size = Vector2(190, 98.5)
@@ -967,7 +967,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_adfpu"]
 resource_name = "FallTransition"
-length = 2.0
+length = 5.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -975,11 +975,11 @@ tracks/0/path = NodePath("Cynthia")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
-"method": &"_physics_process"
+"method": &"set_player_control"
 }]
 }
 tracks/1/type = "value"
@@ -989,10 +989,10 @@ tracks/1/path = NodePath("Cynthia:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.5, 1.7, 2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(4246, 577), Vector2(4267, 766)]
+"values": [Vector2(4244, 579), Vector2(4537, 579), Vector2(4537, 579), Vector2(4630, 506), Vector2(4630, 766)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1001,7 +1001,7 @@ tracks/2/path = NodePath("ColorRect:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(3.5, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -1013,7 +1013,7 @@ tracks/3/path = NodePath("ColorRect:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(3.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -1025,12 +1025,72 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.13333),
+"times": PackedFloat32Array(3.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_change_to_medo"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cynthia/AnimatedSprite2D:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5, 1.7, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"run", &"idle", &"jump", &"jump"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.2, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4549, 506), Vector2(4549, 506), Vector2(4549, 506)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera2D:zoom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.2001, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(2, 2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D:enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cynthia/Camera2D:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_2wyj3"]
@@ -1098,26 +1158,26 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera2D:zoom")
+tracks/5/path = NodePath("Camera2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2, 2)]
+"values": [Vector2(248, 503)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Camera2D:position")
+tracks/6/path = NodePath("Camera2D:zoom")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(248, 503)]
+"values": [Vector2(2, 2)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1146,50 +1206,150 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Camera2D:visible")
+tracks/9/path = NodePath("Cynthia/Camera2D:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Cynthia/Camera2D:visible")
+tracks/10/path = NodePath("ColorRect:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("ColorRect:modulate")
+tracks/11/path = NodePath("ColorRect:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("ColorRect:visible")
+tracks/12/path = NodePath("OrbPath/OrbPathFollow/FugitiveOrb:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Cynthia/Camera2D:enabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Camera2D:enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Cynthia/AnimatedSprite2D:animation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("WalkTrigger:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(453, 522)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TutorialUI/JumpPrompt:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TutorialUI/JumpPrompt:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k6o2u"]
+resource_name = "ShowJumpPrompt"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialUI/JumpPrompt:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialUI/JumpPrompt:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_5g1r7"]
@@ -1202,7 +1362,7 @@ tracks/0/path = NodePath("Cynthia")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 5),
+"times": PackedFloat32Array(0.0333333, 6.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
@@ -1219,7 +1379,7 @@ tracks/1/path = NodePath("OrbPath/OrbPathFollow/FugitiveOrb:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.66),
+"times": PackedFloat32Array(2.5, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -1275,26 +1435,26 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Camera2D:zoom")
+tracks/6/path = NodePath("Camera2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.66, 4.79),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3, 4.5, 6, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1, 1)]
+"values": [Vector2(261, 503), Vector2(248, 503), Vector2(829, 410), Vector2(829, 410), Vector2(574, 320)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Camera2D:position")
+tracks/7/path = NodePath("Camera2D:zoom")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.66, 4.79),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3, 4.5, 6, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(248, 503), Vector2(823, 422), Vector2(576, 324)]
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(3, 3), Vector2(3, 3), Vector2(1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -1303,10 +1463,10 @@ tracks/8/path = NodePath("Cynthia:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.5, 2.5),
+"times": PackedFloat32Array(0.5, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(90, 577), Vector2(261, 577)]
+"values": [Vector2(91, 580), Vector2(400, 580)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -1315,48 +1475,97 @@ tracks/9/path = NodePath("OrbPath/OrbPathFollow/FugitiveOrb:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(3.43),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(2.5, 4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2, 2)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Camera2D:visible")
+tracks/10/path = NodePath("Cynthia/Camera2D:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(4.99),
+"times": PackedFloat32Array(6.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Cynthia/Camera2D:visible")
+tracks/11/path = NodePath("OrbPath/OrbPathFollow/FugitiveOrb:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(4.99),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(2.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Cynthia/Camera2D:enabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Camera2D:enabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Cynthia/AnimatedSprite2D:animation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.5, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"run", &"idle"]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("WalkTrigger:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(6.5, 6.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(453, 522), Vector2(448, 520)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_txbkd"]
 _data = {
 &"FallTransition": SubResource("Animation_adfpu"),
 &"RESET": SubResource("Animation_2wyj3"),
+&"ShowJumpPrompt": SubResource("Animation_k6o2u"),
 &"StartCutscene": SubResource("Animation_5g1r7")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_fv7ie"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 821, 420, 0, 0, 0, 0, 934, 457, 0, 0, 0, 0, 1053, 420, 0, 0, 0, 0, 1166, 381, 0, 0, 0, 0, 1234, 424, 0, 0, 0, 0, 1328, 459, 0, 0, 0, 0, 1437.27, 431.993, 0, 0, 0, 0, 1453, 426, 0, 0, 0, 0, 1548, 357, 0, 0, 0, 0, 1649, 305, 0, 0, 0, 0, 1749, 365, 0, 0, 0, 0, 1821, 424, 0, 0, 0, 0, 1934, 435, 0, 0, 0, 0, 2035, 420, 0, 0, 0, 0, 2115, 369, 0, 0, 0, 0, 2185, 309, 0, 0, 0, 0, 2256, 272, 0, 0, 0, 0, 2349, 342, 0, 0, 0, 0, 2425, 424, 0, 0, 0, 0, 2554, 470, 0, 0, 0, 0, 2689, 451, 0, 0, 0, 0, 2821, 400, 0, 0, 0, 0, 2958, 357, 0, 0, 0, 0, 3079, 334, 0, 0, 0, 0, 3198, 377, 0, 0, 0, 0, 3313, 424, 0, 0, 0, 0, 3420, 392, 0, 0, 0, 0, 3535, 318, 0, 0, 0, 0, 3620, 242, 0, 0, 0, 0, 3730, 264, 0, 0, 0, 0, 3808, 334, 0, 0, 0, 0, 3860, 398, 0, 0, 0, 0, 3942, 435, 0, 0, 0, 0, 4018, 449, 0, 0, 0, 0, 4149, 474, 0, 0, 0, 0, 4280, 484, 0, 0, 0, 0, 4377, 389)
+"points": PackedVector2Array(0, 0, 0, 0, 821, 420, 0, 0, 0, 0, 934, 457, 0, 0, 0, 0, 1053, 420, 0, 0, 0, 0, 1166, 381, 0, 0, 0, 0, 1234, 424, 0, 0, 0, 0, 1327, 445, 0, 0, 0, 0, 1415, 436, 0, 0, 0, 0, 1485, 392, 0, 0, 0, 0, 1548, 357, 0, 0, 0, 0, 1649, 305, 0, 0, 0, 0, 1749, 365, 0, 0, 0, 0, 1821, 424, 0, 0, 0, 0, 1934, 435, 0, 0, 0, 0, 2035, 420, 0, 0, 0, 0, 2115, 369, 0, 0, 0, 0, 2185, 309, 0, 0, 0, 0, 2275, 259, 0, 0, 0, 0, 2370, 301, 0, 0, 0, 0, 2458, 382, 0, 0, 0, 0, 2575, 434, 0, 0, 0, 0, 2716, 370, 0, 0, 0, 0, 2839, 279, 0, 0, 0, 0, 2961, 345, 0, 0, 0, 0, 3047, 319, 0, 0, 0, 0, 3138, 286, 0, 0, 0, 0, 3243, 341, 0, 0, 0, 0, 3343, 349, 0, 0, 0, 0, 3432, 308, 0, 0, 0, 0, 3498, 260, 0, 0, 0, 0, 3590, 229, 0, 0, 0, 0, 3709, 240, 0, 0, 0, 0, 3832, 303, 0, 0, 0, 0, 3892, 333, 0, 0, 0, 0, 4014, 390, 0, 0, 0, 0, 4131, 368, 0, 0, 0, 0, 4270, 363, 0, 0, 0, 0, 4374, 304, 0, 0, 0, 0, 4479, 296, 0, 0, 0, 0, 4549, 336, 0, 0, 0, 0, 4651, 444)
 }
-point_count = 37
+point_count = 40
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gjhd"]
 size = Vector2(20, 179)
@@ -1373,11 +1582,11 @@ modulate = Color(0.237539, 0.237539, 0.237539, 1)
 use_parent_material = true
 position = Vector2(754, 62)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("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")
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_7r4vr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
-position = Vector2(2078, 666)
+position = Vector2(2255, 666)
 shape = SubResource("RectangleShape2D_pj5wn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="chão"]
@@ -1396,7 +1605,7 @@ position = Vector2(0, -300)
 position = Vector2(0, -25)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_k6o2u")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cynthia"]
 position = Vector2(-3.25, -6.5)
@@ -1404,6 +1613,7 @@ shape = SubResource("RectangleShape2D_j0rau")
 
 [node name="Camera2D" type="Camera2D" parent="Cynthia" node_paths=PackedStringArray("target")]
 position = Vector2(6, -258)
+enabled = false
 limit_left = 0
 limit_top = 0
 limit_bottom = 720
@@ -1610,6 +1820,7 @@ libraries = {
 [node name="TutorialUI" type="CanvasLayer" parent="."]
 
 [node name="WalkPrompt" type="Node2D" parent="TutorialUI"]
+position = Vector2(257, 2)
 
 [node name="A" type="TextureRect" parent="TutorialUI/WalkPrompt"]
 visible = false
@@ -1644,21 +1855,21 @@ offset_bottom = 425.0
 texture = ExtResource("27_j0rau")
 
 [node name="JumpPrompt" type="Node2D" parent="TutorialUI"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1415, 394)
 
 [node name="W" type="TextureRect" parent="TutorialUI/JumpPrompt"]
-visible = false
-offset_left = 1484.0
-offset_top = 450.0
-offset_right = 1524.0
-offset_bottom = 490.0
+offset_left = -8.0
+offset_top = 62.0
+offset_right = 32.0
+offset_bottom = 102.0
 texture = ExtResource("28_ri3rn")
 
 [node name="^" type="TextureRect" parent="TutorialUI/JumpPrompt"]
-visible = false
-offset_left = 1484.0
-offset_top = 381.0
-offset_right = 1524.0
-offset_bottom = 421.0
+offset_left = -8.0
+offset_top = -7.0
+offset_right = 32.0
+offset_bottom = 33.0
 texture = ExtResource("29_dsnpu")
 
 [node name="OrbPath" type="Path2D" parent="."]
@@ -1670,18 +1881,19 @@ rotates = false
 
 [node name="FugitiveOrb" parent="OrbPath/OrbPathFollow" instance=ExtResource("30_jfiye")]
 visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-1, -2)
 scale = Vector2(2, 2)
 
 [node name="WalkTrigger" type="Area2D" parent="."]
-position = Vector2(267, 523)
+position = Vector2(453, 522)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WalkTrigger"]
 position = Vector2(0, 35.5)
 shape = SubResource("RectangleShape2D_3gjhd")
 
 [node name="JumpTrigger" type="Area2D" parent="."]
-position = Vector2(1440, 493)
+position = Vector2(1364, 493)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpTrigger"]
 position = Vector2(0, 63)
@@ -1695,7 +1907,6 @@ position = Vector2(0, 105.5)
 shape = SubResource("RectangleShape2D_3gjhd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2(248, 503)
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(2, 2)
