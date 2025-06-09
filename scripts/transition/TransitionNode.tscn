@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwjhhoboxxyhl"]
+
+[ext_resource type="Script" uid="uid://dpomxaholgk25" path="res://scripts/transition/scene_maneger.gd" id="1_7qt6d"]
+[ext_resource type="Shader" uid="uid://buqpweiee2m5g" path="res://scripts/transition/Shaders_Transition.tres" id="2_ui7t5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4x448"]
+shader = ExtResource("2_ui7t5")
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/player = Vector2(0.5, 0.5)
+shader_parameter/progress = 1.0
+shader_parameter/pixel_size = 15.0
+shader_parameter/circle_size = 1.5
+shader_parameter/curtains = 1.0
+shader_parameter/type = 0
+
+[sub_resource type="Animation" id="Animation_q4h2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Label:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_e7n8c"]
+resource_name = "transition_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Label:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0e12p"]
+resource_name = "transition_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Label:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufm3l"]
+_data = {
+&"RESET": SubResource("Animation_q4h2a"),
+&"transition_in": SubResource("Animation_e7n8c"),
+&"transition_out": SubResource("Animation_0e12p")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aquny"]
+shader = ExtResource("2_ui7t5")
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/player = Vector2(0.5, 0.5)
+shader_parameter/progress = 1.0
+shader_parameter/pixel_size = 15.0
+shader_parameter/circle_size = 1.5
+shader_parameter/curtains = 1.0
+shader_parameter/type = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_e7n8c"]
+font_size = 64
+
+[node name="Transition" type="CanvasLayer"]
+script = ExtResource("1_7qt6d")
+
+[node name="Fill" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4x448")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="animation" type="AnimationPlayer" parent="Fill"]
+libraries = {
+&"": SubResource("AnimationLibrary_ufm3l")
+}
+autoplay = "transition_in"
+
+[node name="MarginContainer" type="MarginContainer" parent="Fill"]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 584.0
+offset_right = 1256.0
+offset_bottom = 720.0
+
+[node name="Label" type="Label" parent="Fill/MarginContainer"]
+material = SubResource("ShaderMaterial_aquny")
+layout_mode = 2
+text = "LOADING..."
+label_settings = SubResource("LabelSettings_e7n8c")
+horizontal_alignment = 1
+vertical_alignment = 1
