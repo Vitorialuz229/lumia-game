@@ -1,6 +1,93 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpxffl4yfcj1p"]
+[gd_scene load_steps=21 format=3 uid="uid://cpxffl4yfcj1p"]
 
 [ext_resource type="Script" uid="uid://cfdsmkovbq1b7" path="res://scripts/ui/SettingsMenu.gd" id="1_gtm51"]
+[ext_resource type="Texture2D" uid="uid://bcrlgwvu5mpro" path="res://assets/ui/gradient_1280_720.png" id="2_nh2kd"]
+[ext_resource type="Texture2D" uid="uid://bwexi23s3y088" path="res://assets/ui/Background_3.png" id="3_2itnm"]
+[ext_resource type="Texture2D" uid="uid://dhret4qey7lgj" path="res://assets/ui/dust.png" id="4_shycq"]
+[ext_resource type="Texture2D" uid="uid://b2hkimod2ocp0" path="res://assets/ui/pngwing.com (1).png" id="5_jvpra"]
+[ext_resource type="Texture2D" uid="uid://4fvjo7upxtbn" path="res://assets/ui/CGB02-grey_L_btn (1).png" id="6_h6tww"]
+[ext_resource type="Texture2D" uid="uid://doq3uwfg28gro" path="res://assets/ui/CGB02-grey_L_btn.png" id="7_rbwj6"]
+[ext_resource type="FontFile" uid="uid://dxudp1rjrfmfw" path="res://assets/ui/Marcellus-Regular.ttf" id="8_uab20"]
+[ext_resource type="AudioStream" uid="uid://d1qdurcrgmuq7" path="res://assets/audio/lvl 3 (the grassland)_[cut_35sec].mp3" id="9_llyjd"]
+
+[sub_resource type="Gradient" id="Gradient_bb51c"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.74902, 0.564706, 0, 0, 0.74902, 0.564706, 0, 1, 0.74902, 0.564706, 0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 3
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7vr37"]
+gradient = SubResource("Gradient_bb51c")
+
+[sub_resource type="Curve" id="Curve_8jmry"]
+_data = [Vector2(0, 0.280899), 0.0, 0.0, 0, 0, Vector2(0.558333, 0.52809), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kncl5"]
+curve = SubResource("Curve_8jmry")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xmsgi"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 360, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_kncl5")
+color_ramp = SubResource("GradientTexture1D_7vr37")
+
+[sub_resource type="Theme" id="Theme_lq4ii"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/fonts/font = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_nh2kd"]
+font = ExtResource("8_uab20")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2itnm"]
+font = ExtResource("8_uab20")
+
+[sub_resource type="Animation" id="Animation_2itnm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(552, 522)]
+}
+
+[sub_resource type="Animation" id="Animation_nh2kd"]
+resource_name = "idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(552, 522), Vector2(552, 524), Vector2(552, 522)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shycq"]
+_data = {
+&"RESET": SubResource("Animation_2itnm"),
+&"idle": SubResource("Animation_nh2kd")
+}
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -11,23 +98,119 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gtm51")
 
-[node name="Menu" type="VBoxContainer" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_nh2kd")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.188235, 0.188235, 0.188235, 0.0784314)
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 638.0
+offset_bottom = 363.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_2itnm")
+
+[node name="DustParticles" type="GPUParticles2D" parent="."]
+position = Vector2(635, 364)
+scale = Vector2(2, 2)
+amount = 100
+texture = ExtResource("4_shycq")
+process_material = SubResource("ParticleProcessMaterial_xmsgi")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -27.5
-offset_top = -120.0
-offset_right = 27.5
-offset_bottom = -78.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 162.0
+offset_right = 789.0
+offset_bottom = 1162.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_jvpra")
+
+[node name="Menu2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.351
+anchor_right = 0.559
+anchor_bottom = 0.649
+offset_left = -43.48
+offset_top = -24.72
+offset_right = 46.48
+offset_bottom = -24.28
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_lq4ii")
+theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Voltar" type="Button" parent="Menu"]
+[node name="LabelVolume" type="Label" parent="Menu2"]
 layout_mode = 2
-text = "Voltar"
+text = "Volume"
+label_settings = SubResource("LabelSettings_nh2kd")
 
-[connection signal="pressed" from="Menu/Voltar" to="." method="_on_BtnBack_pressed"]
+[node name="VolumeSlider" type="HSlider" parent="Menu2"]
+layout_mode = 2
+value = 100.0
+
+[node name="BtnBack" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+offset_left = 521.0
+offset_top = 385.0
+offset_right = 762.0
+offset_bottom = 435.0
+texture_normal = ExtResource("6_h6tww")
+texture_hover = ExtResource("7_rbwj6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BtnBack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -11.5
+offset_right = 39.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-285, -22)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_uab20")
+theme_override_font_sizes/font_size = 20
+text = "Voltar"
+label_settings = SubResource("LabelSettings_2itnm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_llyjd")
+autoplay = true
+bus = &"music"
+
+[node name="cynthia_idle" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_shycq")
+}
+
+[connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]

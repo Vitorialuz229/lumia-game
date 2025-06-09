@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cyqql1jpptig4"]
+[gd_scene load_steps=45 format=4 uid="uid://cyqql1jpptig4"]
 
 [ext_resource type="Script" uid="uid://c2jw3q4msidqy" path="res://scripts/levels/medo.gd" id="1_gm8j3"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="2_2symt"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dld7wjs0fqwd2" path="res://assets/audio/heartbeat.ogg" id="11_j6dqx"]
 [ext_resource type="AudioStream" uid="uid://bi705r3mb6ata" path="res://assets/audio/Eerie Steps Approach - Free Sound.mp3" id="12_5xtpo"]
 [ext_resource type="AudioStream" uid="uid://cr64l1p3ueiqr" path="res://assets/audio/Laughing Ghost 2.mp3" id="13_8gvbd"]
+[ext_resource type="Texture2D" uid="uid://dq1sibcv6k4sh" path="res://assets/cenario/Medo/2.png" id="14_8gvbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o28mt"]
 texture = ExtResource("2_ddovt")
@@ -86,6 +87,9 @@ sources/1 = SubResource("TileSetAtlasSource_o28mt")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6dqx"]
 size = Vector2(10757, 38.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvbd"]
+size = Vector2(35, 123)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpgg2"]
 atlas = ExtResource("3_ddovt")
@@ -295,9 +299,32 @@ tile_set = SubResource("TileSet_3yku0")
 position = Vector2(5312.5, 665.25)
 shape = SubResource("RectangleShape2D_j6dqx")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+modulate = Color(0.194441, 0.108704, 0.339584, 1)
+collision_layer = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(2348, 461)
+texture = ExtResource("14_8gvbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2188.5, 583.5)
+shape = SubResource("RectangleShape2D_8gvbd")
+one_way_collision = true
+one_way_collision_margin = 2.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(2413.69, 583.5)
+scale = Vector2(8.85625, 6.15)
+polygon = PackedVector2Array(-7.7561, -9.34959, -7.7561, 9.6748, 7.7132, 9.6748, 6.35822, -29.5122, 2.63205, -29.5122, 2.63205, -9.34959)
+one_way_collision = true
+one_way_collision_margin = 2.0
+
 [node name="Cynthia" type="CharacterBody2D" parent="."]
 position = Vector2(566, 578)
-collision_mask = 6
+collision_mask = 14
+slide_on_ceiling = false
+safe_margin = 0.001
 script = ExtResource("2_2symt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cynthia"]
@@ -314,6 +341,7 @@ shape = SubResource("RectangleShape2D_cq0ic")
 position = Vector2(9, -255)
 limit_left = 0
 limit_top = 0
+limit_right = 6000
 limit_bottom = 720
 limit_smoothed = true
 drag_horizontal_enabled = true
@@ -363,10 +391,10 @@ scale = Vector2(2.3, 2.3)
 texture = ExtResource("10_3yku0")
 
 [node name="OrbSpawns" type="Node2D" parent="."]
+position = Vector2(855, 90)
 
 [node name="Marker2D" type="Marker2D" parent="OrbSpawns"]
-
-[node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
+position = Vector2(-552, 104)
 
 [node name="background_audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2symt")

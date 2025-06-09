@@ -17,14 +17,14 @@ colors = PackedColorArray(0.74902, 0.564706, 0, 0, 0.74902, 0.564706, 0, 1, 0.74
 metadata/_snap_enabled = true
 metadata/_snap_count = 3
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_7mi0g"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7vr37"]
 gradient = SubResource("Gradient_e2per")
 
 [sub_resource type="Curve" id="Curve_nqjyj"]
 _data = [Vector2(0, 0.280899), 0.0, 0.0, 0, 0, Vector2(0.558333, 0.52809), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_7vr37"]
+[sub_resource type="CurveTexture" id="CurveTexture_kncl5"]
 curve = SubResource("Curve_nqjyj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e2per"]
@@ -39,8 +39,8 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, -5, 0)
 scale_min = 0.5
 scale_max = 1.5
-scale_curve = SubResource("CurveTexture_7vr37")
-color_ramp = SubResource("GradientTexture1D_7mi0g")
+scale_curve = SubResource("CurveTexture_kncl5")
+color_ramp = SubResource("GradientTexture1D_7vr37")
 
 [sub_resource type="Theme" id="Theme_6jbdy"]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -335,6 +335,7 @@ texture = ExtResource("3_iwbf0")
 
 [node name="DustParticles" type="GPUParticles2D" parent="."]
 position = Vector2(635, 364)
+scale = Vector2(2, 2)
 amount = 100
 texture = ExtResource("4_7mi0g")
 process_material = SubResource("ParticleProcessMaterial_e2per")

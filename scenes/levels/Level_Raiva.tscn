@@ -1,8 +1,11 @@
-[gd_scene load_steps=44 format=4 uid="uid://4bggfcmnxwc0"]
+[gd_scene load_steps=53 format=4 uid="uid://4bggfcmnxwc0"]
 
 [ext_resource type="Script" uid="uid://w8trlydf0rrw" path="res://scripts/levels/raiva.gd" id="1_5i070"]
 [ext_resource type="Texture2D" uid="uid://hritrciixb88" path="res://assets/cenario/Raiva/Hills Layer 05 (1).png" id="2_rq7ql"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="3_ch3pb"]
+[ext_resource type="Texture2D" uid="uid://cftjoo32f07us" path="res://assets/cenario/Raiva/5.png" id="3_e4fbh"]
+[ext_resource type="Texture2D" uid="uid://deqid45uwpb2d" path="res://assets/cenario/Raiva/7.png" id="4_8ej8a"]
+[ext_resource type="Texture2D" uid="uid://w7nuc5t0tq2w" path="res://assets/cenario/Raiva/Bonfire_2.png" id="4_0446t"]
 [ext_resource type="Texture2D" uid="uid://ci42pcb1tckuw" path="res://assets/sprites/personagem/Raiva/Idle_raiva.png" id="4_e4fbh"]
 [ext_resource type="Texture2D" uid="uid://bko6844okl5ae" path="res://assets/sprites/personagem/Raiva/jump_raiva.png" id="5_0446t"]
 [ext_resource type="Texture2D" uid="uid://diiw53egnnott" path="res://assets/sprites/personagem/Raiva/run_raiva.png" id="6_8ej8a"]
@@ -87,6 +90,45 @@ sources/2 = SubResource("TileSetAtlasSource_c6csy")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah3xb"]
 size = Vector2(7676, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ej8a"]
+atlas = ExtResource("4_0446t")
+region = Rect2(0, 0, 64, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on5ju"]
+atlas = ExtResource("4_0446t")
+region = Rect2(64, 0, 64, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmjfq"]
+atlas = ExtResource("4_0446t")
+region = Rect2(128, 0, 64, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx0bu"]
+atlas = ExtResource("4_0446t")
+region = Rect2(192, 0, 64, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngwwf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ej8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on5ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmjfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx0bu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_on5ju"]
+size = Vector2(46.5, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6csy"]
 atlas = ExtResource("4_e4fbh")
@@ -295,9 +337,90 @@ tile_set = SubResource("TileSet_ewng3")
 position = Vector2(3772, 666)
 shape = SubResource("RectangleShape2D_ah3xb")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+modulate = Color(1, 0.32549, 0.341176, 1)
+position = Vector2(148, 19)
+collision_layer = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(2695, 388)
+scale = Vector2(2, 2)
+texture = ExtResource("3_e4fbh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3408, 582)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8ej8a")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3408, 483)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8ej8a")
+
+[node name="Sprite2D4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3408, 385)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8ej8a")
+
+[node name="Sprite2D5" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3615.25, 582.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8ej8a")
+
+[node name="Sprite2D6" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3615.25, 484.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8ej8a")
+
+[node name="Sprite2D7" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3852, 583)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8ej8a")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(2140, 623, 2140, 570, 2207, 570, 2218, 524, 2279, 523, 2295, 478, 2364, 478, 2376, 434, 2441, 434, 2456, 388, 3207, 388, 3207, 415, 2460, 394, 2443, 438, 2417, 438, 2380, 438, 2365, 485, 2300, 485, 2279, 532, 2261, 531, 2222, 531, 2205, 595, 2154, 595, 2155, 623)
+one_way_collision = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(3298, 563)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ngwwf")
+autoplay = "default"
+frame = 3
+frame_progress = 0.886536
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(3514, 564)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ngwwf")
+autoplay = "default"
+frame_progress = 0.867728
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(3730, 564)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ngwwf")
+autoplay = "default"
+frame_progress = 0.867728
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3407, 379)
+shape = SubResource("RectangleShape2D_on5ju")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3615, 477)
+shape = SubResource("RectangleShape2D_on5ju")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3852, 576)
+shape = SubResource("RectangleShape2D_on5ju")
+one_way_collision = true
+
 [node name="Cynthia" type="CharacterBody2D" parent="."]
 position = Vector2(566, 578)
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("3_ch3pb")
 
 [node name="OrbFollowPoint" type="Marker2D" parent="Cynthia"]
@@ -317,6 +440,7 @@ shape = SubResource("RectangleShape2D_npbkf")
 position = Vector2(9, -252)
 limit_left = 0
 limit_top = 0
+limit_right = 6000
 limit_bottom = 720
 limit_smoothed = true
 drag_horizontal_enabled = true
@@ -397,10 +521,10 @@ flip_h = true
 [node name="OrbSpawns" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="OrbSpawns"]
-position = Vector2(82, 246)
+position = Vector2(3089, -8)
 
 [node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
-position = Vector2(334, 225)
+position = Vector2(3541, 134)
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_rq7ql")

@@ -71,8 +71,7 @@ func _on_BtnContinue_pressed():
 func _on_BtnSettings_pressed():
 	var click_tween = _play_click_feedback(btn_settings)
 	await click_tween.finished
-	get_tree().change_scene_to_file("res://scenes/ui/SettingsMenu.tscn")
-
+	SceneTransition.fade_to_scene("res://scenes/ui/SettingsMenu.tscn")
 
 func _on_BtnExit_pressed():
 	var click_tween = _play_click_feedback(btn_exit)

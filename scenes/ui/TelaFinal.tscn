@@ -1,0 +1,250 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfjdcvbkxq01k"]
+
+[ext_resource type="Script" uid="uid://bjxnggt8hrtn" path="res://scenes/ui/tela_final.gd" id="1_ci6rm"]
+[ext_resource type="Texture2D" uid="uid://41fha35vx7nd" path="res://assets/ui/LUMIA__2_-removebg-preview.png" id="2_qys5c"]
+[ext_resource type="FontFile" uid="uid://dxudp1rjrfmfw" path="res://assets/ui/Marcellus-Regular.ttf" id="3_x60lg"]
+[ext_resource type="AudioStream" uid="uid://datk2vu152otg" path="res://assets/audio/Fim.ogg" id="4_qys5c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vx2s3"]
+font = ExtResource("3_x60lg")
+font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_dg7j0"]
+font = ExtResource("3_x60lg")
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_eg72s"]
+resource_name = "MostrarTudo"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/LogoLumia:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/LogoLumia:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/MensagemFinal:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/VBoxContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/VBoxContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(6, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(447, 726), Vector2(447, 332)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Timer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [3],
+"method": &"start"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_d1bw3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/LogoLumia:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/LogoLumia:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/MensagemFinal:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/VBoxContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/VBoxContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(447, 726)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ckbv"]
+_data = {
+&"MostrarTudo": SubResource("Animation_eg72s"),
+&"RESET": SubResource("Animation_d1bw3")
+}
+
+[node name="TelaFinal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ci6rm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LogoLumia" type="TextureRect" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("2_qys5c")
+
+[node name="MensagemFinal" type="Label" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -154.0
+offset_right = 147.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_x60lg")
+text = "Você reencontrou sua luz."
+label_settings = SubResource("LabelSettings_vx2s3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -388.0
+offset_right = 195.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Cristina - Artista
+Raquel - Artista e Sound Designer
+Thayliny - Artista e Roteirista
+Taniele - Game Designer e Desenvolvedora
+Vitória - Desenvolvedora"
+label_settings = SubResource("LabelSettings_dg7j0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0ckbv")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qys5c")
+volume_db = 24.0
+autoplay = true
+bus = &"music"

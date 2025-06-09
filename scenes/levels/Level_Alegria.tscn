@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=4 uid="uid://yt1cfw8y3a5i"]
+[gd_scene load_steps=47 format=4 uid="uid://yt1cfw8y3a5i"]
 
 [ext_resource type="Script" uid="uid://cepov87ros3xd" path="res://scripts/levels/Alegria.gd" id="1_17xmf"]
 [ext_resource type="Texture2D" uid="uid://bw7n2uavo6fmp" path="res://assets/cenario/Alegria/country-platform-tiles-example.png" id="2_qqnqj"]
+[ext_resource type="Texture2D" uid="uid://cwscopqula3sl" path="res://assets/cenario/Alegria/4.png" id="3_ltpru"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="3_mm7i0"]
 [ext_resource type="Texture2D" uid="uid://2h74if1gqueu" path="res://assets/sprites/personagem/Alegria/Idle_alegria.png" id="4_ltpru"]
 [ext_resource type="Texture2D" uid="uid://2l3s62lj8qgj" path="res://assets/sprites/personagem/Alegria/jump_alegria.png" id="5_tvj3b"]
@@ -140,7 +141,10 @@ texture = ExtResource("2_qqnqj")
 sources/0 = SubResource("TileSetAtlasSource_17xmf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uowpj"]
-size = Vector2(2708, 85.5)
+size = Vector2(10635, 85.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltpru"]
+size = Vector2(227, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yfb7"]
 atlas = ExtResource("4_ltpru")
@@ -347,12 +351,31 @@ tile_map_data = PackedByteArray("AADv/wsAAAAAAAwAAADv/wwAAAAAAA0AAADw/wsAAAABAAw
 tile_set = SubResource("TileSet_643ss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
-position = Vector2(1288, 641.75)
+position = Vector2(5251.5, 641.75)
 shape = SubResource("RectangleShape2D_uowpj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+modulate = Color(1, 0.910365, 0.746498, 1)
+position = Vector2(148, 19)
+collision_layer = 8
+
+[node name="Sprite2D6" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(2563, 443)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ltpru")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(349, 2)
+polygon = PackedVector2Array(1988.2, 566, 2032.2, 478, 2093.2, 478, 2140, 565)
+one_way_collision = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2755.5, 564.5)
+shape = SubResource("RectangleShape2D_ltpru")
 
 [node name="Cynthia" type="CharacterBody2D" parent="."]
 position = Vector2(566, 578)
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("3_mm7i0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cynthia"]
@@ -369,6 +392,7 @@ shape = SubResource("RectangleShape2D_bow42")
 position = Vector2(9, -255)
 limit_left = 0
 limit_top = 0
+limit_right = 6000
 limit_bottom = 720
 limit_smoothed = true
 drag_horizontal_enabled = true
@@ -431,10 +455,8 @@ spawn_area = Rect2(1000, 0, 1280, 720)
 
 [node name="OrbSpawns" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="OrbSpawns"]
-position = Vector2(326, 349)
-
 [node name="Marker2D2" type="Marker2D" parent="OrbSpawns"]
+position = Vector2(2189, 18)
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_17xmf")
