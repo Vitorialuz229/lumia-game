@@ -104,3 +104,13 @@ func update_following_orbs(delta_param):
 			orb.global_position = orb.global_position.lerp(target_global_pos, 10 * delta_param)
 			if side != orb.scale.x:
 				orb.scale.x = side
+				
+func unite_following_orbs(target_position: Vector2):
+	if following_orbs.is_empty():
+		return
+
+	var duration = 1.5
+	for orb in following_orbs:
+		var tween = create_tween()
+		tween.tween_property(orb, "global_position", target_position, duration).set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(orb, "modulate:a", 0.0, 0.2).set_delay(duration - 0.2)

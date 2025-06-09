@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpxffl4yfcj1p"]
+[gd_scene load_steps=21 format=3 uid="uid://cpxffl4yfcj1p"]
 
 [ext_resource type="Script" uid="uid://cfdsmkovbq1b7" path="res://scripts/ui/SettingsMenu.gd" id="1_gtm51"]
 [ext_resource type="Texture2D" uid="uid://bcrlgwvu5mpro" path="res://assets/ui/gradient_1280_720.png" id="2_nh2kd"]
@@ -44,6 +44,12 @@ color_ramp = SubResource("GradientTexture1D_7vr37")
 [sub_resource type="Theme" id="Theme_lq4ii"]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/fonts/font = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_nh2kd"]
+font = ExtResource("8_uab20")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2itnm"]
+font = ExtResource("8_uab20")
 
 [sub_resource type="Animation" id="Animation_2itnm"]
 length = 0.001
@@ -157,6 +163,7 @@ alignment = 1
 [node name="LabelVolume" type="Label" parent="Menu2"]
 layout_mode = 2
 text = "Volume"
+label_settings = SubResource("LabelSettings_nh2kd")
 
 [node name="VolumeSlider" type="HSlider" parent="Menu2"]
 layout_mode = 2
@@ -192,6 +199,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_uab20")
 theme_override_font_sizes/font_size = 20
 text = "Voltar"
+label_settings = SubResource("LabelSettings_2itnm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
