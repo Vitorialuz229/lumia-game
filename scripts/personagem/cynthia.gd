@@ -74,13 +74,11 @@ func add_following_orb(orb):
 
 func update_following_orbs(delta_param):
 	if typeof(delta_param) != TYPE_FLOAT:
-		# Fallback caso delta_param chegue com tipo inesperado
-		# Idealmente, isso não deveria acontecer se a causa raiz foi corrigida
 		if get_tree() != null and get_tree().get_root() != null : #Evita erro ao sair do jogo
 			delta_param = get_physics_process_delta_time() 
-			if typeof(delta_param) != TYPE_FLOAT: # Último recurso
+			if typeof(delta_param) != TYPE_FLOAT:
 				delta_param = 1.0 / Engine.get_physics_ticks_per_second() if Engine.get_physics_ticks_per_second() > 0 else 1.0/60.0
-		else: # Se não consegue pegar o delta do motor, usa um valor padrão
+		else:
 			delta_param = 1.0/60.0
 
 

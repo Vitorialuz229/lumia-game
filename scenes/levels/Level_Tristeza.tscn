@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bal6ryupmfrkj"]
+[gd_scene load_steps=46 format=4 uid="uid://bal6ryupmfrkj"]
 
 [ext_resource type="Script" uid="uid://b8soerimujrgl" path="res://scripts/levels/tristeza.gd" id="1_p6ip4"]
 [ext_resource type="Texture2D" uid="uid://bsox408jc2u3k" path="res://assets/cenario/Tristeza/Hills Layer 05 (1).png" id="2_l0eyr"]
@@ -88,9 +88,6 @@ sources/1 = SubResource("TileSetAtlasSource_8nn3p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r60qd"]
 size = Vector2(7688, 85.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf476"]
-size = Vector2(46.5, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r60qd"]
 atlas = ExtResource("4_1j54n")
@@ -323,11 +320,6 @@ texture = ExtResource("3_laj7p")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(474.8, 1)
 polygon = PackedVector2Array(1739, 572, 1739, 540, 1786, 540, 1786, 512, 1830, 512, 1830, 485, 1880, 485, 1880, 458, 1927, 458, 1927, 430, 2001, 430, 2001, 374, 2114, 374, 2114, 400, 2167, 400, 2167, 432, 2216, 432, 2216, 458, 2267, 458, 2267, 489, 2315, 489, 2315, 517, 2365, 517, 2365, 546, 2415, 546, 2415, 577, 2412, 577, 2412, 554, 2361, 554, 2361, 522, 2312, 520, 2313, 494, 2262, 492, 2264, 462, 2213, 461, 2214, 436, 2162, 434, 2164, 405, 2111, 403, 2099, 392, 2019, 392, 2004, 435, 1930, 433, 1932, 458, 1923, 467, 1883, 461, 1886, 490, 1833, 487, 1835, 513, 1826, 526, 1789, 515, 1792, 542, 1742, 543, 1744, 572)
-one_way_collision = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3407, 379)
-shape = SubResource("RectangleShape2D_cf476")
 one_way_collision = true
 
 [node name="Cynthia" type="CharacterBody2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cyqql1jpptig4"]
+[gd_scene load_steps=49 format=4 uid="uid://cyqql1jpptig4"]
 
 [ext_resource type="Script" uid="uid://c2jw3q4msidqy" path="res://scripts/levels/medo.gd" id="1_gm8j3"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="2_2symt"]
@@ -280,6 +280,146 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq0ic"]
 size = Vector2(80.75, 155)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf8wo"]
+size = Vector2(13, 335)
+
+[sub_resource type="Animation" id="Animation_fvjg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cenario/fundo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cenario/elementos:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeEffect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FadeEffect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x3ym4"]
+resource_name = "TransitionToRaiva"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cynthia")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_player_control"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cenario/fundo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.346953, 0.0846911, 0.372581, 1), Color(0.580392, 0.0509804, 0.137255, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cenario/elementos:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FadeEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.0333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FadeEffect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_change_to_next_level"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50f4l"]
+_data = {
+&"RESET": SubResource("Animation_fvjg1"),
+&"TransitionToRaiva": SubResource("Animation_x3ym4")
+}
+
 [node name="Medo" type="Node2D"]
 position = Vector2(64, 37)
 script = ExtResource("1_gm8j3")
@@ -417,3 +557,25 @@ bus = &"effects"
 [node name="laughing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_8gvbd")
 bus = &"effects"
+
+[node name="TransitionTrigger" type="Area2D" parent="."]
+position = Vector2(3805, 562)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
+position = Vector2(3.5, -82.5)
+shape = SubResource("RectangleShape2D_sf8wo")
+
+[node name="FadeEffect" type="ColorRect" parent="."]
+visible = false
+offset_left = -87.0
+offset_top = -50.0
+offset_right = 4404.0
+offset_bottom = 705.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_50f4l")
+}
+
+[connection signal="body_entered" from="TransitionTrigger" to="." method="_on_transition_trigger_body_entered"]
