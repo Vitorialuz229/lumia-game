@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://yt1cfw8y3a5i"]
+[gd_scene load_steps=51 format=4 uid="uid://yt1cfw8y3a5i"]
 
 [ext_resource type="Script" uid="uid://cepov87ros3xd" path="res://scripts/levels/Alegria.gd" id="1_17xmf"]
 [ext_resource type="Texture2D" uid="uid://bw7n2uavo6fmp" path="res://assets/cenario/Alegria/country-platform-tiles-example.png" id="2_qqnqj"]
@@ -335,6 +335,170 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bow42"]
 size = Vector2(88.5, 151.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvj3b"]
+size = Vector2(12, 588)
+
+[sub_resource type="Animation" id="Animation_576gq"]
+resource_name = "TransitionToFim"
+length = 3.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cynthia")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_player_control"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cynthia/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"jump", &"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/fundo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.294118, 1, 1), Color(2.98411e-06, 0.759349, 0.710858, 1), Color(0.768627, 0, 1, 1), Color(1, 0.451343, 0.822006, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FadeEffect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FadeEffect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_change_to_next_level"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("steps:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ahv53"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cynthia/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/fundo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeEffect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FadeEffect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("steps:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eyekb"]
+_data = {
+&"RESET": SubResource("Animation_ahv53"),
+&"TransitionToFim": SubResource("Animation_576gq")
+}
+
 [node name="Alegria" type="Node2D"]
 position = Vector2(65, 37)
 script = ExtResource("1_17xmf")
@@ -460,7 +624,6 @@ position = Vector2(2189, 18)
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_17xmf")
-volume_db = 24.0
 autoplay = true
 bus = &"music"
 
@@ -474,3 +637,26 @@ bus = &"effects"
 stream = ExtResource("15_ltpru")
 volume_db = 5.0
 bus = &"effects"
+
+[node name="TransitionTrigger" type="Area2D" parent="."]
+position = Vector2(4617, 481)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
+position = Vector2(4, -179)
+shape = SubResource("RectangleShape2D_tvj3b")
+
+[node name="FadeEffect" type="ColorRect" parent="."]
+visible = false
+offset_left = -128.0
+offset_top = -122.0
+offset_right = 7172.0
+offset_bottom = 817.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eyekb")
+}
+
+[connection signal="body_entered" from="TransitionTrigger" to="." method="_on_transition_trigger_body_entered"]
+[connection signal="body_entered" from="TransitionTrigger" to="." method="_on_area_2d_body_entered"]

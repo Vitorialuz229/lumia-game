@@ -29,30 +29,23 @@ func play_random_sound() -> void:
 
 func _on_transition_trigger_body_entered(body):
 	if body.name == "Cynthia":
-		# Pega a contagem de orbs do seu sistema global
-		# Assumindo que Globals.save_data.orbs_collected é um array
 		var orbs_coletados_count = 0
 		if Globals.save_data.has("orbs_collected"):
 			orbs_coletados_count = Globals.save_data.orbs_collected.size()
 		
 		print("Cyntia no trigger. Coletados: ", orbs_coletados_count, "/", orbs_necessarios)
 
-		# A condição para iniciar a transição
 		if orbs_coletados_count >= orbs_necessarios:
 			start_level_transition()
 		else:
-			print("Condição não atendida. Transição não iniciada.")
-			# Opcional: Mostre uma mensagem ao jogador aqui
+			print("Cynthia ainda não está pronta para seguir em frente!")
 
-# Função que inicia a animação
 func start_level_transition():
 	print("Iniciando transição para a próxima fase...")
 	cynthia.set_player_control(false)
 	animation_player.play("TransitionToRaiva")
 
-# Função que a animação chama no final para carregar a próxima cena
 func _change_to_next_level():
-	# Zera a contagem de orbs para a próxima fase
 	if Globals.save_data.has("orbs_collected"):
 		Globals.save_data.orbs_collected.clear()
 	

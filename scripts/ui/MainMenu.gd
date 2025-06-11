@@ -34,8 +34,6 @@ func _play_click_feedback(button_node) -> Tween:
 
 
 func _on_BtnStart_pressed():
-	var click_tween = _play_click_feedback(btn_start)
-	await click_tween.finished
 	Globals.save_data = {
 		"current_phase": "vazio",
 		"orbs_collected": [],
@@ -47,8 +45,6 @@ func _on_BtnStart_pressed():
 
 
 func _on_BtnContinue_pressed():
-	var click_tween = _play_click_feedback(btn_continue)
-	await click_tween.finished
 	if Globals.load_game():
 		var phase = Globals.save_data.get("current_phase", "vazio")
 		match phase:
@@ -69,11 +65,7 @@ func _on_BtnContinue_pressed():
 
 
 func _on_BtnSettings_pressed():
-	var click_tween = _play_click_feedback(btn_settings)
-	await click_tween.finished
 	SceneTransition.fade_to_scene("res://scenes/ui/SettingsMenu.tscn")
 
 func _on_BtnExit_pressed():
-	var click_tween = _play_click_feedback(btn_exit)
-	await click_tween.finished
 	get_tree().quit()
