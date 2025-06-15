@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=4 uid="uid://byomk0tq4f3oc"]
+[gd_scene load_steps=161 format=4 uid="uid://byomk0tq4f3oc"]
 
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="1_p1ufu"]
 [ext_resource type="Texture2D" uid="uid://c1wxqxf5osynt" path="res://assets/cenario/Hills Layer 05.png" id="1_pj5wn"]
@@ -30,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://7lrcau2pt15y" path="res://assets/ui/W.png" id="28_ri3rn"]
 [ext_resource type="Texture2D" uid="uid://df103cl54tj2f" path="res://assets/ui/ARROWUP.png" id="29_dsnpu"]
 [ext_resource type="PackedScene" uid="uid://bkioaitg8fnch" path="res://scenes/personagem/fugitiveOrb.tscn" id="30_jfiye"]
+[ext_resource type="Texture2D" uid="uid://4fvjo7upxtbn" path="res://assets/ui/CGB02-grey_L_btn (1).png" id="30_k6o2u"]
+[ext_resource type="FontFile" uid="uid://dxudp1rjrfmfw" path="res://assets/ui/Marcellus-Regular.ttf" id="31_j0rau"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydlh0"]
 texture = ExtResource("1_pj5wn")
@@ -1564,6 +1566,12 @@ _data = {
 &"StartCutscene": SubResource("Animation_5g1r7")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_ri3rn"]
+line_spacing = 0.0
+font = ExtResource("31_j0rau")
+font_size = 70
+outline_size = 10
+
 [sub_resource type="Curve2D" id="Curve2D_fv7ie"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 821, 420, 0, 0, 0, 0, 934, 457, 0, 0, 0, 0, 1053, 420, 0, 0, 0, 0, 1166, 381, 0, 0, 0, 0, 1234, 424, 0, 0, 0, 0, 1327, 445, 0, 0, 0, 0, 1415, 436, 0, 0, 0, 0, 1485, 392, 0, 0, 0, 0, 1548, 357, 0, 0, 0, 0, 1649, 305, 0, 0, 0, 0, 1749, 365, 0, 0, 0, 0, 1821, 424, 0, 0, 0, 0, 1934, 435, 0, 0, 0, 0, 2035, 420, 0, 0, 0, 0, 2115, 369, 0, 0, 0, 0, 2185, 309, 0, 0, 0, 0, 2275, 259, 0, 0, 0, 0, 2370, 301, 0, 0, 0, 0, 2458, 382, 0, 0, 0, 0, 2575, 434, 0, 0, 0, 0, 2716, 370, 0, 0, 0, 0, 2839, 279, 0, 0, 0, 0, 2961, 345, 0, 0, 0, 0, 3047, 319, 0, 0, 0, 0, 3138, 286, 0, 0, 0, 0, 3243, 341, 0, 0, 0, 0, 3343, 349, 0, 0, 0, 0, 3432, 308, 0, 0, 0, 0, 3498, 260, 0, 0, 0, 0, 3590, 229, 0, 0, 0, 0, 3709, 240, 0, 0, 0, 0, 3832, 303, 0, 0, 0, 0, 3892, 333, 0, 0, 0, 0, 4014, 390, 0, 0, 0, 0, 4131, 368, 0, 0, 0, 0, 4270, 363, 0, 0, 0, 0, 4374, 304, 0, 0, 0, 0, 4479, 296, 0, 0, 0, 0, 4549, 336, 0, 0, 0, 0, 4651, 444)
@@ -1851,53 +1859,68 @@ position = Vector2(257, 2)
 
 [node name="A" type="TextureRect" parent="TutorialUI/WalkPrompt"]
 visible = false
-offset_left = 281.0
-offset_top = 454.0
-offset_right = 321.0
-offset_bottom = 494.0
+offset_left = 153.0
+offset_top = 369.0
+offset_right = 193.0
+offset_bottom = 409.0
 texture = ExtResource("24_2wyj3")
 
 [node name="<-" type="TextureRect" parent="TutorialUI/WalkPrompt"]
 visible = false
-offset_left = 280.0
-offset_top = 385.0
-offset_right = 320.0
-offset_bottom = 425.0
+offset_left = 429.0
+offset_top = 369.0
+offset_right = 469.0
+offset_bottom = 409.0
 texture = ExtResource("25_5g1r7")
 
 [node name="D" type="TextureRect" parent="TutorialUI/WalkPrompt"]
 visible = false
-offset_left = 351.0
-offset_top = 454.0
-offset_right = 391.0
-offset_bottom = 494.0
+offset_left = 255.0
+offset_top = 369.0
+offset_right = 295.0
+offset_bottom = 409.0
 texture = ExtResource("26_k6o2u")
 
 [node name="->" type="TextureRect" parent="TutorialUI/WalkPrompt"]
 visible = false
-offset_left = 349.0
-offset_top = 385.0
-offset_right = 389.0
-offset_bottom = 425.0
+offset_left = 517.0
+offset_top = 369.0
+offset_right = 557.0
+offset_bottom = 409.0
 texture = ExtResource("27_j0rau")
+
+[node name="W" type="TextureRect" parent="TutorialUI/WalkPrompt"]
+offset_left = 204.0
+offset_top = 321.0
+offset_right = 244.0
+offset_bottom = 361.0
+texture = ExtResource("28_ri3rn")
+
+[node name="^" type="TextureRect" parent="TutorialUI/WalkPrompt"]
+offset_left = 473.0
+offset_top = 321.0
+offset_right = 513.0
+offset_bottom = 361.0
+texture = ExtResource("29_dsnpu")
+
+[node name="Sprite2D" type="Sprite2D" parent="TutorialUI/WalkPrompt"]
+position = Vector2(365.5, 361)
+scale = Vector2(0.150391, 0.214286)
+texture = ExtResource("30_k6o2u")
+
+[node name="Label" type="Label" parent="TutorialUI/WalkPrompt/Sprite2D"]
+offset_left = -246.0
+offset_top = -62.0
+offset_right = 245.0
+offset_bottom = 64.0
+text = "OU"
+label_settings = SubResource("LabelSettings_ri3rn")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="JumpPrompt" type="Node2D" parent="TutorialUI"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1415, 394)
-
-[node name="W" type="TextureRect" parent="TutorialUI/JumpPrompt"]
-offset_left = -8.0
-offset_top = 62.0
-offset_right = 32.0
-offset_bottom = 102.0
-texture = ExtResource("28_ri3rn")
-
-[node name="^" type="TextureRect" parent="TutorialUI/JumpPrompt"]
-offset_left = -8.0
-offset_top = -7.0
-offset_right = 32.0
-offset_bottom = 33.0
-texture = ExtResource("29_dsnpu")
 
 [node name="OrbPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_fv7ie")
@@ -1920,7 +1943,7 @@ position = Vector2(0, 35.5)
 shape = SubResource("RectangleShape2D_3gjhd")
 
 [node name="JumpTrigger" type="Area2D" parent="."]
-position = Vector2(1364, 493)
+position = Vector2(1818, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpTrigger"]
 position = Vector2(0, 63)
@@ -1940,11 +1963,13 @@ zoom = Vector2(2, 2)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -95.0
-offset_top = -49.0
-offset_right = 5326.0
-offset_bottom = 678.0
+offset_left = -78.0
+offset_top = -48.0
+offset_right = 5343.0
+offset_bottom = 679.0
 color = Color(0, 0, 0, 1)
+
+[node name="UI_Layer" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="WalkTrigger" to="." method="_on_walk_trigger_body_entered"]
 [connection signal="body_entered" from="JumpTrigger" to="." method="_on_jump_trigger_body_entered"]

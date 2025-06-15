@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Teste"
+config/name="LUMIA"
+config/description="Cyntia, uma jovem negra, perdeu suas cores após um evento traumático. Ela caminha por paisagens emocionais em busca de reconquistar sua luz interior.
+Cada etapa superada restaura parte do seu mundo e de sua autoimagem."
 run/main_scene="uid://i40wm6dp7skt"
 config/features=PackedStringArray("4.4", "Mobile")
+config/icon="uid://dgwkkk1i06lq2"
 
 [audio]
 
@@ -27,8 +30,11 @@ SceneTransition="*res://scenes/ui/SceneTransition.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/initial_position_type=0
+window/size/mode=4
 window/size/borderless=true
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

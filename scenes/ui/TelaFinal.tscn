@@ -1,17 +1,45 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfjdcvbkxq01k"]
+[gd_scene load_steps=15 format=3 uid="uid://cfjdcvbkxq01k"]
 
 [ext_resource type="Script" uid="uid://bjxnggt8hrtn" path="res://scenes/ui/tela_final.gd" id="1_ci6rm"]
 [ext_resource type="Texture2D" uid="uid://41fha35vx7nd" path="res://assets/ui/LUMIA__2_-removebg-preview.png" id="2_qys5c"]
+[ext_resource type="Texture2D" uid="uid://dhret4qey7lgj" path="res://assets/ui/dust.png" id="2_x60lg"]
 [ext_resource type="FontFile" uid="uid://dxudp1rjrfmfw" path="res://assets/ui/Marcellus-Regular.ttf" id="3_x60lg"]
 [ext_resource type="AudioStream" uid="uid://datk2vu152otg" path="res://assets/audio/Fim.ogg" id="4_qys5c"]
+
+[sub_resource type="Gradient" id="Gradient_vx2s3"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.74902, 0.564706, 0, 0, 0.74902, 0.564706, 0, 1, 0.74902, 0.564706, 0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 3
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7vr37"]
+gradient = SubResource("Gradient_vx2s3")
+
+[sub_resource type="Curve" id="Curve_dg7j0"]
+_data = [Vector2(0, 0.280899), 0.0, 0.0, 0, 0, Vector2(0.558333, 0.52809), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kncl5"]
+curve = SubResource("Curve_dg7j0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eg72s"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 360, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_kncl5")
+color_ramp = SubResource("GradientTexture1D_7vr37")
 
 [sub_resource type="LabelSettings" id="LabelSettings_vx2s3"]
 font = ExtResource("3_x60lg")
 font_size = 27
-
-[sub_resource type="LabelSettings" id="LabelSettings_dg7j0"]
-font = ExtResource("3_x60lg")
-font_size = 20
 
 [sub_resource type="Animation" id="Animation_eg72s"]
 resource_name = "MostrarTudo"
@@ -52,38 +80,14 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorRect/VBoxContainer:visible")
+tracks/3/path = NodePath("Timer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(5.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ColorRect/VBoxContainer:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(6, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(447, 726), Vector2(447, 332)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Timer")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(11),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [3],
@@ -129,30 +133,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ColorRect/VBoxContainer:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ColorRect/VBoxContainer:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(447, 726)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ckbv"]
 _data = {
@@ -178,15 +158,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="DustParticles" type="GPUParticles2D" parent="ColorRect"]
+position = Vector2(635, 364)
+scale = Vector2(5, 5)
+amount = 200
+texture = ExtResource("2_x60lg")
+process_material = SubResource("ParticleProcessMaterial_eg72s")
+
 [node name="LogoLumia" type="TextureRect" parent="ColorRect"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -253.0
+offset_top = 165.0
+offset_right = 253.0
+offset_bottom = 401.0
 grow_horizontal = 2
 texture = ExtResource("2_qys5c")
 
@@ -198,41 +186,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = -154.0
-offset_right = 147.0
-offset_bottom = -122.0
+offset_left = -156.0
+offset_top = 50.0
+offset_right = 161.0
+offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_x60lg")
 text = "Você reencontrou sua luz."
 label_settings = SubResource("LabelSettings_vx2s3")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -193.0
-offset_top = -388.0
-offset_right = 195.0
-offset_bottom = -136.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Cristina - Artista
-Raquel - Artista e Sound Designer
-Thayliny - Artista e Roteirista
-Taniele - Game Designer e Desenvolvedora
-Vitória - Desenvolvedora"
-label_settings = SubResource("LabelSettings_dg7j0")
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -7,6 +7,7 @@ var is_collected = false
 
 
 func _ready():
+	if orb_type == "fim" : return
 	sprite.play(orb_type)
 	if orb_type == "vazio":
 		is_collected = true
@@ -19,6 +20,7 @@ func _on_body_entered(body):
 
 
 func collect(player):
+	if is_collected: return
 	is_collected = true
 	$CollisionShape2D.set_deferred("disabled", true)
 
@@ -27,7 +29,10 @@ func collect(player):
 	tween.tween_property(self, "scale", Vector2.ZERO, 0.2)
 
 	Globals.register_orb(orb_type, global_position)
-
+	player.call_deferred("add_following_orb", self)
+	
+	get_parent().on_orb_collected()
+	
 	var new_orb = preload("res://scenes/personagem/orb.tscn").instantiate()
 	new_orb.orb_type = orb_type
 	new_orb.is_collected = true
@@ -36,4 +41,3 @@ func collect(player):
 	player.call_deferred("add_following_orb", new_orb)
 
 	await tween.finished
-	queue_free()

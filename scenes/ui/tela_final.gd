@@ -8,5 +8,6 @@ func _ready():
 	timer.timeout.connect(_on_Timer_timeout)
 
 func _on_Timer_timeout():
+	Globals.reset_save()
 	#get_tree().change_scene_to_file("res://scenes/ui/MainMenu.tscn")
 	SceneTransition.fade_to_scene("res://scenes/ui/MainMenu.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://cyqql1jpptig4"]
+[gd_scene load_steps=51 format=4 uid="uid://cyqql1jpptig4"]
 
 [ext_resource type="Script" uid="uid://c2jw3q4msidqy" path="res://scripts/levels/medo.gd" id="1_gm8j3"]
 [ext_resource type="Script" uid="uid://b2n1xlw16t07a" path="res://scripts/personagem/cynthia.gd" id="2_2symt"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bi705r3mb6ata" path="res://assets/audio/Eerie Steps Approach - Free Sound.mp3" id="12_5xtpo"]
 [ext_resource type="AudioStream" uid="uid://cr64l1p3ueiqr" path="res://assets/audio/Laughing Ghost 2.mp3" id="13_8gvbd"]
 [ext_resource type="Texture2D" uid="uid://dq1sibcv6k4sh" path="res://assets/cenario/Medo/2.png" id="14_8gvbd"]
+[ext_resource type="FontFile" uid="uid://dxudp1rjrfmfw" path="res://assets/ui/Marcellus-Regular.ttf" id="15_sf8wo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o28mt"]
 texture = ExtResource("2_ddovt")
@@ -283,6 +284,11 @@ size = Vector2(80.75, 155)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sf8wo"]
 size = Vector2(13, 335)
 
+[sub_resource type="LabelSettings" id="LabelSettings_x3ym4"]
+font = ExtResource("15_sf8wo")
+font_size = 35
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_fvjg1"]
 length = 0.001
 tracks/0/type = "value"
@@ -467,6 +473,9 @@ slide_on_ceiling = false
 safe_margin = 0.001
 script = ExtResource("2_2symt")
 
+[node name="OrbFollowPoint" type="Marker2D" parent="Cynthia"]
+position = Vector2(-7, -300)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cynthia"]
 position = Vector2(0, -28)
 scale = Vector2(3, 3)
@@ -481,16 +490,13 @@ shape = SubResource("RectangleShape2D_cq0ic")
 position = Vector2(9, -255)
 limit_left = 0
 limit_top = 0
-limit_right = 6000
+limit_right = 5000
 limit_bottom = 720
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("6_j6dqx")
 target = NodePath("..")
-
-[node name="OrbFollowPoint" type="Marker2D" parent="Cynthia"]
-position = Vector2(0, -300)
 
 [node name="OrbContainer" type="Node2D" parent="Cynthia"]
 
@@ -534,7 +540,7 @@ texture = ExtResource("10_3yku0")
 position = Vector2(855, 90)
 
 [node name="Marker2D" type="Marker2D" parent="OrbSpawns"]
-position = Vector2(-552, 104)
+position = Vector2(2278, -40)
 
 [node name="background_audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2symt")
@@ -559,11 +565,23 @@ stream = ExtResource("13_8gvbd")
 bus = &"effects"
 
 [node name="TransitionTrigger" type="Area2D" parent="."]
-position = Vector2(3805, 562)
+position = Vector2(4920, 562)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
 position = Vector2(3.5, -82.5)
 shape = SubResource("RectangleShape2D_sf8wo")
+
+[node name="BarrierMessage" type="Label" parent="TransitionTrigger"]
+visible = false
+offset_left = -368.0
+offset_top = -388.0
+offset_right = -2.0
+offset_bottom = -140.0
+text = "Cynthia ainda não está pronta para seguir em frente."
+label_settings = SubResource("LabelSettings_x3ym4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="FadeEffect" type="ColorRect" parent="."]
 visible = false
@@ -577,5 +595,10 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_50f4l")
 }
+
+[node name="MessageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="UI_Layer" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="TransitionTrigger" to="." method="_on_transition_trigger_body_entered"]

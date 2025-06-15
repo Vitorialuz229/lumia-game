@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://i40wm6dp7skt"]
+[gd_scene load_steps=23 format=3 uid="uid://i40wm6dp7skt"]
 
 [ext_resource type="Script" uid="uid://doj01wa0xe3ou" path="res://scripts/ui/MainMenu.gd" id="1_vjtqc"]
 [ext_resource type="Texture2D" uid="uid://bcrlgwvu5mpro" path="res://assets/ui/gradient_1280_720.png" id="2_iwbf0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://4fvjo7upxtbn" path="res://assets/ui/CGB02-grey_L_btn (1).png" id="5_bhu4a"]
 [ext_resource type="Texture2D" uid="uid://doq3uwfg28gro" path="res://assets/ui/CGB02-grey_L_btn.png" id="6_bhu4a"]
 [ext_resource type="FontFile" uid="uid://dxudp1rjrfmfw" path="res://assets/ui/Marcellus-Regular.ttf" id="7_e2per"]
+[ext_resource type="Texture2D" uid="uid://rk4q61sn8irc" path="res://assets/ui/CGB02-grey_L_btn (1) (2).png" id="9_kncl5"]
 [ext_resource type="AudioStream" uid="uid://d1qdurcrgmuq7" path="res://assets/audio/lvl 3 (the grassland)_[cut_35sec].mp3" id="10_7vr37"]
 
 [sub_resource type="Gradient" id="Gradient_e2per"]
@@ -335,8 +336,8 @@ texture = ExtResource("3_iwbf0")
 
 [node name="DustParticles" type="GPUParticles2D" parent="."]
 position = Vector2(635, 364)
-scale = Vector2(2, 2)
-amount = 100
+scale = Vector2(5, 5)
+amount = 200
 texture = ExtResource("4_7mi0g")
 process_material = SubResource("ParticleProcessMaterial_e2per")
 
@@ -379,6 +380,7 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 texture_normal = ExtResource("5_bhu4a")
 texture_hover = ExtResource("6_bhu4a")
+texture_disabled = ExtResource("9_kncl5")
 ignore_texture_size = true
 stretch_mode = 5
 

@@ -44,6 +44,11 @@ func load_game() -> bool:
 			return true
 	return false
 
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		print("Pedido para fechar o jogo. Salvando...")
+		save_game()
+		get_tree().quit()
 
 func reset_save():
 	save_data = {

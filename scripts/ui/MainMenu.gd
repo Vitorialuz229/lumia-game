@@ -16,16 +16,24 @@ func _process(delta):
 	parallax_bg.scroll_offset += scroll_speed * delta
 
 
+# Em MainMenu.gd
+
 func _ready():
 	lumia_animation_player.play("titulo")
 	cynthia_animation_player.play("cynthia_idle")
 
-	if Globals.load_game():
-		btn_continue.disabled = false
-	else:
+	if not Globals.load_game():
 		btn_continue.disabled = true
+		return
 
+	var saved_level = Globals.save_data.get("current_level", "vazio")
+	var saved_orbs = Globals.save_data.get("collected_orbs", [])
 
+	if saved_level == "vazio" and saved_orbs.is_empty():
+		btn_continue.disabled = true
+	else:
+		btn_continue.disabled = false
+		
 func _play_click_feedback(button_node) -> Tween:
 	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.tween_property(button_node, "scale", Vector2(0.85, 0.85), 0.08)
@@ -44,25 +52,27 @@ func _on_BtnStart_pressed():
 	get_tree().change_scene_to_file("res://scenes/levels/vazio.tscn")
 
 
-func _on_BtnContinue_pressed():
-	if Globals.load_game():
-		var phase = Globals.save_data.get("current_phase", "vazio")
-		match phase:
-			"vazio":
-				get_tree().change_scene_to_file("res://scenes/levels/vazio.tscn")
-			"medo":
-				get_tree().change_scene_to_file("res://scenes/levels/Level_Medo.tscn")
-			"raiva":
-				get_tree().change_scene_to_file("res://scenes/levels/Level_Raiva.tscn")
-			"tristeza":
-				get_tree().change_scene_to_file("res://scenes/levels/Level_Tristeza.tscn")
-			"alegria":
-				get_tree().change_scene_to_file("res://scenes/levels/Level_Alegria.tscn")
-			"fim":
-				get_tree().change_scene_to_file("res://scenes/levels/fim.tscn")
-			_:
-				get_tree().change_scene_to_file("res://scenes/levels/vazio.tscn")
+# Em MainMenu.gd
 
+func _on_BtnContinue_pressed():
+	var phase = Globals.save_data.get("current_level", "vazio")
+	print("Continuando para a fase: ", phase) # Print de depuração para confirmar
+
+	match phase:
+		"vazio":
+			SceneTransition.fade_to_scene("res://scenes/levels/vazio.tscn")
+		"medo":
+			SceneTransition.fade_to_scene("res://scenes/levels/Level_Medo.tscn")
+		"raiva":
+			SceneTransition.fade_to_scene("res://scenes/levels/Level_Raiva.tscn")
+		"tristeza":
+			SceneTransition.fade_to_scene("res://scenes/levels/Level_Tristeza.tscn")
+		"alegria":
+			SceneTransition.fade_to_scene("res://scenes/levels/Level_Alegria.tscn")
+		"fim":
+			SceneTransition.fade_to_scene("res://scenes/levels/fim.tscn")
+		_:
+			get_tree().change_scene_to_file("res://scenes/levels/vazio.tscn")
 
 func _on_BtnSettings_pressed():
 	SceneTransition.fade_to_scene("res://scenes/ui/SettingsMenu.tscn")

@@ -1,20 +1,21 @@
 extends BaseLevel
 
 @onready var animation_player = $AnimationPlayer
+@onready var guide_orb_path_follow = $FinalGuidePath/GuideOrbPathFollow
+
+var follow_distance_ahead = 200.0
 
 func _ready():
-	show_collected_orbs()
+	super._ready() 
+	animation_player.play("AparecerOrbGuia")
 
+func _process(delta):
+	if not is_instance_valid(cynthia) or not is_instance_valid(guide_orb_path_follow):
+		return
 
-func show_collected_orbs():
-	if Globals.load_game():
-		for i in range(Globals.save_data["collected_orbs"].size()):
-			var orb = preload("res://scenes/personagem/orb.tscn").instantiate()
-			orb.orb_type = Globals.save_data["collected_orbs"][i]
-			orb.position = Vector2(200 + i * 100, 300)
-			orb.is_collected = true
-			add_child(orb)
+	var target_progress = cynthia.global_position.x + follow_distance_ahead
 
+	guide_orb_path_follow.progress = lerp(guide_orb_path_follow.progress, target_progress, delta * 2.0)
 
 func _on_final_trigger_body_entered(body):
 	if body.name == "Cynthia":

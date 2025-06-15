@@ -52,4 +52,6 @@ func _on_fall_trigger_body_entered(body):
 		animation_player.play("FallTransition")
 
 func _change_to_medo():
-	get_tree().change_scene_to_file("res://scenes/levels/Level_Medo.tscn")
+	Globals.save_data["current_level"] = "medo"
+	Globals.save_game()
+	SceneTransition.fade_to_scene("res://scenes/levels/Level_Medo.tscn")
